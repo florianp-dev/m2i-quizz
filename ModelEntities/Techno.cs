@@ -6,8 +6,7 @@ namespace ModelEntities
     {
         /* membres de classe propres à l'objet */
         private int _technoID;
-        private string _name;
-        public string Name { get { return _name; } }
+        public string Name { get; set; }
 
         /* membres de classe liés à la cardinalité des objets */
         // Une techno peut avoir plusieurs questions
@@ -15,7 +14,7 @@ namespace ModelEntities
 
         public Techno(string pName)
         {
-            _name = pName;
+            Name = pName;
         }
 
         public Techno(string pName, List<Question> pQuestions) : this(pName)

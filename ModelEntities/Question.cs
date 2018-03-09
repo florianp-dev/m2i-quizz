@@ -14,30 +14,32 @@ namespace ModelEntities
 
         /* membres de classe propres à l'objet */
         private int _questionID;
-        public string libelle { get; set; }
+        public string Libelle { get; set; }
         public bool IsActive { get; set; }
 
         /* membres de classe liés à la cardinalité des objets */
         // Une Question a une seule techno
         public Techno Techno { get; set; }
         // Une question a entre 0 et 4 réponses
-        private Reponse[] _linkedReponses = new Reponse[MAX_REPONSE];
-        public Reponse[] LinkedResponse { get { return _linkedReponses;  } }
+        public Reponse[] LinkedResponse { get; set; }
         // Une question peut avoir plusieurs QuestionQuizz
-        public List<QuestionQuizz> LinkedQuestionQuizz = new List<QuestionQuizz>();
+        public List<QuestionQuizz> LinkedQuestionQuizz { get; set; }
         // Une question a au plus un commentaire
-        public CommentaireQuestion LinkedCommentaireQuestion { get; set; } = null;
+        public CommentaireQuestion LinkedCommentaireQuestion { get; set; }
 
         public Question(string pLib, Techno pTech)
         {
-            libelle = pLib;
+            Libelle = pLib;
             Techno = pTech;
             IsActive = true;
+            LinkedResponse = new Reponse[MAX_REPONSE];
+            LinkedQuestionQuizz = new List<QuestionQuizz>();
+            LinkedCommentaireQuestion = null;
         }
 
         public Question(string pLib, Techno pTech, Reponse[] pRep): this(pLib, pTech)
         {
-            _linkedReponses = pRep;
+            LinkedResponse = pRep;
         }
 
         public Question(string pLib, Techno pTech, List<QuestionQuizz> pQQ) : this(pLib, pTech)
@@ -48,21 +50,6 @@ namespace ModelEntities
         public Question(string pLib, Techno pTech, Reponse[] pRep, List<QuestionQuizz> pQQ) : this(pLib, pTech, pRep)
         {
             LinkedQuestionQuizz = pQQ;
-        }
-
-        /// <summary>
-        /// Permet d'ajouter une réponse possible à la question
-        /// Lève une exception si on ajoute trop de questions
-        /// </summary>
-        /// <param name="pRep">Réponse à ajouter</param>
-        public void AddReponse(Reponse pRep)
-        {
-            var length = _linkedReponses.Length;
-
-            if (length == MAX_REPONSE)
-                throw new IndexOutOfRangeException("Il y a déjà le maximum de réponses possible pour cette question");
-
-            _linkedReponses[length] = pRep;
         }
 
         /// <summary>
