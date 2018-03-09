@@ -12,15 +12,14 @@ namespace ModelEntities
 
         /* membres de classe liés à la cardinalité des objets */
         // QuestionQuizz a un Quizz
-        private Quizz _linkedQuizz;
-        public Quizz LinkedQuizz { get { return _linkedQuizz; } }
+        public Quizz LinkedQuizz { get; set; }
         // QuestionQuizz a une seule question
         public Question LinkedQuestion { get; set; }
 
         public QuestionQuizz(int pOrder, Quizz pQuizz, Question pQuest)
         {
             order = pOrder;
-            _linkedQuizz = pQuizz;
+            LinkedQuizz = pQuizz;
             LinkedQuestion = pQuest;
         }
     }

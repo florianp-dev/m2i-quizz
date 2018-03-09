@@ -8,23 +8,20 @@ namespace ModelEntities
     {
         /* membres de classe propres à l'objet */
         private int _reponseID;
-        private string _content;
-        private bool _isCorrect;
-        public string Content { get { return _content; } }
-        public bool IsCorrect { get { return _isCorrect; } }
+        public string Content { get; set; }
+        public bool IsCorrect { get; set; }
 
         /* membres de classe liés à la cardinalité des objets */
         // Réponse a une Question
-        private Question _linkedQuestion;
-        public Question LinkedQuestion { get { return _linkedQuestion; } }
+        public Question LinkedQuestion { get; set; }
         // Réponse peut avoir une réponseQuiz
         public ReponseQuizz LinkedReponseQuiz { get; set; }
 
         public Reponse(string pContent, bool pIsCorrect, Question pQuestion)
         {
-            _content = pContent;
-            _linkedQuestion = pQuestion;
-            _isCorrect = pIsCorrect;
+            Content = pContent;
+            LinkedQuestion = pQuestion;
+            IsCorrect = pIsCorrect;
         }
     }
 }
