@@ -9,7 +9,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace ModelEntities
+namespace ModelEntities.Entities
 {
     class Techno
     {
@@ -18,13 +18,13 @@ namespace ModelEntities
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int TechnoID { get; set; }
-        public string Name { get; set; }
+        public string Wording { get; set; }
         #endregion
 
         #region Associations
         /* membres de classe liés à la cardinalité des objets */
         // Une techno peut avoir plusieurs questions
-        public List<Question> LinkedQuestions { get; set; } = new List<Question>();
+        public virtual ICollection<Question> LinkedQuestions { get; set; }
         #endregion
     }
 }

@@ -8,19 +8,22 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace ModelEntities
+namespace ModelEntities.Entities
 {
-    class CommentaireQuestion
+    class QuestionComment
     {
         #region Properties
         /* membres de classe propres à l'objet */
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int CommentID { get; set; }
+        public int QCommentID { get; set; }
         // représente le contenu du commentaire
-        public string Commentaire { get; set; }
+        public string Content { get; set; }
+        #endregion
+
+        #region Associations
         // Un commentaire n'appartient qu'à une seule question
-        public Question Question { get; set; }
+        public virtual Question Question { get; set; }
         #endregion
     }
 }

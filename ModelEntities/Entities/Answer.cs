@@ -1,21 +1,22 @@
-﻿
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
-/// <remarks>
+﻿/// <remarks>
 /// Florian POUCHELET
 /// </remarks>
 /// <summary>
-/// Représente les réponses possible à une question
+/// Représente les réponses possibles à une question
 /// </summary>
-namespace ModelEntities
+
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+
+namespace ModelEntities.Entities
 {
-    class Reponse
+    class Answer
     {
         #region Properties
         /* membres de classe propres à l'objet */
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int ReponseID { get; set; }
+        public int AnswerID { get; set; }
         public string Content { get; set; }
         public bool IsCorrect { get; set; }
         #endregion
@@ -25,7 +26,7 @@ namespace ModelEntities
         // Réponse a une Question
         public virtual Question LinkedQuestion { get; set; }
         // Réponse peut avoir une réponseQuiz
-        public virtual ReponseQuizz LinkedReponseQuiz { get; set; }
+        public virtual ReponseQuizz LinkedReponseQuizz { get; set; }
         #endregion
     }
 }

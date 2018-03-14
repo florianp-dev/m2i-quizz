@@ -9,7 +9,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace ModelEntities
+namespace ModelEntities.Entities
 {
     class Question
     {
@@ -29,11 +29,11 @@ namespace ModelEntities
         // Une question à un type de question
         public virtual QuestionType QType { get; set; }
         // Une question a entre 0 et 4 réponses
-        public virtual Reponse[] LinkedResponse { get; set; }
+        public virtual Answer[] LinkedResponse { get; set; }
         // Une question peut avoir plusieurs QuestionQuizz
         public virtual ICollection<QuestionQuizz> LinkedQuestionQuizz { get; set; }
         // Une question a au plus un commentaire
-        public virtual CommentaireQuestion LinkedCommentaireQuestion { get; set; }
+        public virtual QuestionComment LinkedCommentaireQuestion { get; set; }
         #endregion
     }
 }

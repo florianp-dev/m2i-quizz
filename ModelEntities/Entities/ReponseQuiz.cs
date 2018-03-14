@@ -1,10 +1,11 @@
-
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 /// <remarks>
 /// Florian POUCHELET
 /// </remarks>
-namespace ModelEntities
+
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+
+namespace ModelEntities.Entities
 {
     class ReponseQuizz
     {
@@ -17,7 +18,7 @@ namespace ModelEntities
 
         #region Associations
         public virtual Quizz Quizz { get; set; }
-        public virtual Reponse Answer { get; set; }
+        public virtual Answer Answer { get; set; }
         #endregion
     }
 }

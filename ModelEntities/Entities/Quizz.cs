@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace ModelEntities
+namespace ModelEntities.Entities
 {
     class Quizz
     {
@@ -16,7 +16,7 @@ namespace ModelEntities
 
         #region Associations
         public virtual List<QuestionQuizz> QuestionQuiz { get; set; }
-        public virtual CommentaireQuestion QuestionComment { get; set; }
+        public virtual QuestionComment QuestionComment { get; set; }
         public virtual List<ReponseQuizz> QuizAnswer { get; set; }
         #endregion
     }
