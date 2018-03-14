@@ -4,8 +4,9 @@
 
 namespace ModelEntities
 {
-   public  class QuestionQuizz
+   public class QuestionQuizz
     {
+        #region Properties
         /* membres de classe propres à l'objet */
         private int _questionQuizID;
         public int order { get; set; }
@@ -15,6 +16,7 @@ namespace ModelEntities
         public Quizz LinkedQuizz { get; set; }
         // QuestionQuizz a une seule question
         public Question LinkedQuestion { get; set; }
+        #endregion
 
         public QuestionQuizz(int pOrder, Quizz pQuizz, Question pQuest)
         {
