@@ -2,25 +2,26 @@
 /// Florian POUCHELET
 /// </remarks>
 
-namespace ModelEntities
-{
-   public  class QuestionQuizz
-    {
-        /* membres de classe propres à l'objet */
-        private int _questionQuizID;
-        public int order { get; set; }
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
+namespace ModelEntities.Entities
+{
+   class QuestionQuizz
+    {
+        #region Properties
+        /* membres de classe propres à l'objet */
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public int QuestionQuizID { get; set; }
+        #endregion
+
+        #region Associations
         /* membres de classe liés à la cardinalité des objets */
         // QuestionQuizz a un Quizz
         public Quizz LinkedQuizz { get; set; }
         // QuestionQuizz a une seule question
         public Question LinkedQuestion { get; set; }
-
-        public QuestionQuizz(int pOrder, Quizz pQuizz, Question pQuest)
-        {
-            order = pOrder;
-            LinkedQuizz = pQuizz;
-            LinkedQuestion = pQuest;
-        }
+        #endregion
     }
 }
