@@ -44,6 +44,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Entities\Difficulty.cs" />
     <Compile Include="Entities\QuestionComment.cs" />
     <Compile Include="Entities\Question.cs" />
     <Compile Include="Entities\QuestionQuizz.cs" />
