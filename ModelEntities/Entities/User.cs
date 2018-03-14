@@ -24,6 +24,9 @@ namespace ModelEntities.Entities
         public string Password { get; set; }
         public string Society { get; set; }
         public bool IsAdmin { get; set; }
+
+        [ForeignKey("Quizz")]
+        public int QuizzID { get; set; }
         #endregion
 
         #region Associations

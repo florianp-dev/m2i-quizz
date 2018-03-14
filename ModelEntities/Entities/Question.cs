@@ -20,10 +20,19 @@ namespace ModelEntities.Entities
         public int QuestionID { get; set; }
         public string Libelle { get; set; }
         public bool IsActive { get; set; }
+
+        /* membres de classe liés à la cardinalité des objets */
+        [ForeignKey("Techno")]
+        public int TechnoID { get; set; }
+        [ForeignKey("QuestionType")]
+        public int QTypeID { get; set; }
+        [ForeignKey("Answer")]
+        public int AnswerID { get; set; }
+        [ForeignKey("QuestionComment")]
+        public int QCommentID { get; set; }
         #endregion
 
         #region Associations
-        /* membres de classe liés à la cardinalité des objets */
         // Une Question a une seule techno
         public virtual Techno Techno { get; set; }
         // Une question à un type de question

@@ -19,10 +19,13 @@ namespace ModelEntities.Entities
         public int AnswerID { get; set; }
         public string Content { get; set; }
         public bool IsCorrect { get; set; }
+
+        /* membres de classe liés à la cardinalité des objets */
+        [ForeignKey("Question")]
+        public int QuestionID { get; set; }
         #endregion
 
         #region Associations
-        /* membres de classe liés à la cardinalité des objets */
         // Réponse a une Question
         public virtual Question LinkedQuestion { get; set; }
         // Réponse peut avoir une réponseQuiz

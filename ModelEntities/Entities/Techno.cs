@@ -19,6 +19,9 @@ namespace ModelEntities.Entities
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int TechnoID { get; set; }
         public string Wording { get; set; }
+
+        [ForeignKey("Question")]
+        public int QuestionID { get; set; }
         #endregion
 
         #region Associations

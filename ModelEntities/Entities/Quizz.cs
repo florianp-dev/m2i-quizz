@@ -12,6 +12,9 @@ namespace ModelEntities.Entities
         public int QuizzID { get; set; }
         public string CandidateFirstname { get; set; }
         public string CandidateLastname { get; set; }
+
+        [ForeignKey("QuestionComment")]
+        public int QCommentID { get; set; }
         #endregion
 
         #region Associations
