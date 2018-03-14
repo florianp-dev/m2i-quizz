@@ -29,7 +29,7 @@ namespace ModelEntities.Entities
         // Réponse a une Question
         public virtual Question LinkedQuestion { get; set; }
         // Réponse peut avoir une réponseQuiz
-        public virtual ReponseQuizz LinkedReponseQuizz { get; set; }
+        //public virtual ReponseQuizz LinkedReponseQuizz { get; set; }
         #endregion
     }
 }

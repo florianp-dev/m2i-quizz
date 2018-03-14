@@ -40,7 +40,7 @@ namespace ModelEntities.Entities
         // Une question a entre 0 et 4 réponses
         public virtual Answer[] LinkedResponse { get; set; }
         // Une question peut avoir plusieurs QuestionQuizz
-        public virtual ICollection<QuestionQuizz> LinkedQuestionQuizz { get; set; }
+        //public virtual ICollection<QuestionQuizz> LinkedQuestionQuizz { get; set; }
         // Une question a au plus un commentaire
         public virtual QuestionComment LinkedCommentaireQuestion { get; set; }
         #endregion

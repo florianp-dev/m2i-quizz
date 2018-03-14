@@ -18,9 +18,9 @@ namespace ModelEntities.Entities
         #endregion
 
         #region Associations
-        public virtual List<QuestionQuizz> QuestionQuiz { get; set; }
+        //public virtual List<QuestionQuizz> QuestionQuiz { get; set; }
         public virtual QuestionComment QuestionComment { get; set; }
-        public virtual List<ReponseQuizz> QuizAnswer { get; set; }
+        //public virtual List<ReponseQuizz> QuizAnswer { get; set; }
         #endregion
     }
 }
