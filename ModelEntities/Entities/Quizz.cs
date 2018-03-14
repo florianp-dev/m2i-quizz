@@ -1,23 +1,23 @@
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ModelEntities
 {
-    public class Quizz
+    class Quizz
     {
         #region Properties
-        public int Id { get; set; }
-        public string Surname { get; set; }
-        public string Firstname { get; set; }
-        public List<QuestionQuizz> QuestionQuiz { get; set; }
-        public CommentaireQuestion QuestionComment { get; set; }
-        public List<ReponseQuizz> QuizAnswer { get; set; }
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public int QuizzID { get; set; }
+        public string CandidateFirstname { get; set; }
+        public string CandidateLastname { get; set; }
         #endregion
-        
-        public Quizz(string pSurname, string pFirstname, List<QuestionQuizz> pQuestionQuiz, CommentaireQuestion pQuestionComment, List<ReponseQuizz> pQuizAnswer)
-        {
-            Surname = pSurname;
-            Firstname = pFirstname;
-            QuestionComment = pQuestionComment;
-        }
+
+        #region Associations
+        public virtual List<QuestionQuizz> QuestionQuiz { get; set; }
+        public virtual CommentaireQuestion QuestionComment { get; set; }
+        public virtual List<ReponseQuizz> QuizAnswer { get; set; }
+        #endregion
     }
 }
