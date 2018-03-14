@@ -5,7 +5,6 @@
 /// Représente une question dans le Quizz
 /// </summary>
 
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -30,6 +29,8 @@ namespace ModelEntities.Entities
         public int AnswerID { get; set; }
         [ForeignKey("QuestionComment")]
         public int QCommentID { get; set; }
+        [ForeignKey("Difficulty")]
+        public int DifficultyID { get; set; }
         #endregion
 
         #region Associations
@@ -37,12 +38,14 @@ namespace ModelEntities.Entities
         public virtual Techno Techno { get; set; }
         // Une question à un type de question
         public virtual QuestionType QType { get; set; }
+        // Une question n'a qu'une seule difficulté
+        public virtual Difficulty Difficulty { get; set; }
         // Une question a entre 0 et 4 réponses
         public virtual Answer[] LinkedResponse { get; set; }
         // Une question peut avoir plusieurs QuestionQuizz
         //public virtual ICollection<QuestionQuizz> LinkedQuestionQuizz { get; set; }
         // Une question a au plus un commentaire
-        public virtual QuestionComment LinkedCommentaireQuestion { get; set; }
+        public virtual QuestionComment LinkedQuestionComment { get; set; }
         #endregion
     }
 }
