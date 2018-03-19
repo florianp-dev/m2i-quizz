@@ -18,11 +18,6 @@ namespace ModelEntities.Entities
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int ResultID { get; set; }
-
-        [ForeignKey("Quizz")]
-        public int QuizzID { get; set; }
-        [ForeignKey("Question")]
-        public int AnswerID { get; set; }
         #endregion
 
         #region Associations

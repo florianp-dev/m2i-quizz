@@ -23,9 +23,6 @@ namespace ModelEntities.Entities
         /// Donne le pourcentage de questions de cette difficulté à incorporer à un quizz
         /// </summary>
         public int Percentage { get; set; }
-
-        [ForeignKey("Quizz")]
-        public int QuizzID { get; set; }
         #endregion
 
         #region Associations
