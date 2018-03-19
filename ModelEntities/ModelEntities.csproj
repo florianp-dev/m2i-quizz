@@ -57,6 +57,7 @@
     <Compile Include="Entities\QuestionType.cs" />
     <Compile Include="Entities\Quizz.cs" />
     <Compile Include="Entities\Answer.cs" />
+    <Compile Include="Entities\Result.cs" />
     <Compile Include="Entities\Techno.cs" />
     <Compile Include="Entities\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

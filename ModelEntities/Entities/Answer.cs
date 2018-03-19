@@ -5,6 +5,7 @@
 /// Représente les réponses possibles à une question
 /// </summary>
 
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -23,13 +24,15 @@ namespace ModelEntities.Entities
         /* membres de classe liés à la cardinalité des objets */
         [ForeignKey("Question")]
         public int QuestionID { get; set; }
+        [ForeignKey("Result")]
+        public int ResultID { get; set; }
         #endregion
 
         #region Associations
         // Réponse a une Question
         public virtual Question LinkedQuestion { get; set; }
-        // Réponse peut avoir une réponseQuiz
-        //public virtual ReponseQuizz LinkedReponseQuizz { get; set; }
+        // Une réponse appartient à plusieurs résultats
+        public virtual ICollection<Result> LinkedResults { get; set; }
         #endregion
     }
 }
