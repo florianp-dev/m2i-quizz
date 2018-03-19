@@ -29,6 +29,8 @@ namespace ModelEntities.Entities
         public virtual QuestionType QType { get; set; }
         // Une question n'a qu'une seule difficulté
         public virtual Difficulty Difficulty { get; set; }
+        // Une question peut appartenir à plusieurs Quizz
+        public virtual ICollection<Quizz> LinkedQuizzes { get; set; }
         // Une question a entre 0 et 4 réponses
         public virtual ICollection<Answer> LinkedResponse { get; set; }
         // Une question a au plus un commentaire

@@ -5,6 +5,7 @@
 /// Représente un quizz dans l'application
 /// </summary>
 
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -21,7 +22,9 @@ namespace ModelEntities.Entities
         #endregion
 
         #region Associations
+        public virtual User LinkedUser { get; set; }
         public virtual Difficulty Difficulty { get; set; }
+        public virtual ICollection<Question> LinkedQuestions { get; set; }
         public virtual Result LinkedResult { get; set; }
         #endregion
     }

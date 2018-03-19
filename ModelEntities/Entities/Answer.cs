@@ -24,7 +24,7 @@ namespace ModelEntities.Entities
 
         #region Associations
         // Réponse a une Question
-        public virtual Question LinkedQuestion { get; set; }
+        public virtual ICollection<Question> LinkedQuestion { get; set; }
         // Une réponse appartient à plusieurs résultats
         public virtual ICollection<Result> LinkedResults { get; set; }
         #endregion
