@@ -12,7 +12,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ModelEntities.Entities
 {
-    class QuestionType
+    public class QuestionType
     {
         #region Properties
         [Key]

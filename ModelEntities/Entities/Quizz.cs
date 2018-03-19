@@ -10,7 +10,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ModelEntities.Entities
 {
-    class Quizz
+    public class Quizz
     {
         #region Properties
         [Key]

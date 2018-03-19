@@ -10,7 +10,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ModelEntities.Entities
 {
-    class QuestionComment
+    public class QuestionComment
     {
         #region Properties
         /* membres de classe propres à l'objet */

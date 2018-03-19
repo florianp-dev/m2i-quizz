@@ -9,7 +9,7 @@ using System.Data.Entity;
 
 namespace ModelEntities.Entities
 {
-    class DataBaseContext : DbContext
+    public class DataBaseContext : DbContext
     {
         public DataBaseContext() : base("QuizzApplication")
         {

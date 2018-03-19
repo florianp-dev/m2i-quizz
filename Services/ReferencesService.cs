@@ -8,5 +8,8 @@ namespace Services
 {
     class ReferencesService
     {
+
+        GetTechnologies : retourner la liste de toutes les technologies
+GetSkills : retourner la liste de tous les niveaux
     }
 }

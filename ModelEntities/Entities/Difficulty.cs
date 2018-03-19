@@ -11,7 +11,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ModelEntities.Entities
 {
-    class Difficulty
+    public class Difficulty
     {
         #region Properties
         /* membres de classe propres à l'objet */

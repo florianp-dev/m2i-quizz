@@ -11,7 +11,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ModelEntities.Entities
 {
-    class Techno
+    public class Techno
     {
         #region Properties
         /* membres de classe propres à l'objet */
