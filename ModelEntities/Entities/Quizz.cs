@@ -22,7 +22,7 @@ namespace ModelEntities.Entities
 
         #region Associations
         public virtual Difficulty Difficulty { get; set; }
-        public virtual Result Linkedresult { get; set; }
+        public virtual Result LinkedResult { get; set; }
         #endregion
     }
 }
