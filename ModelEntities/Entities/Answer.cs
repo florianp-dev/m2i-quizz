@@ -20,12 +20,6 @@ namespace ModelEntities.Entities
         public int AnswerID { get; set; }
         public string Content { get; set; }
         public bool IsCorrect { get; set; }
-
-        /* membres de classe liés à la cardinalité des objets */
-        [ForeignKey("Question")]
-        public int QuestionID { get; set; }
-        [ForeignKey("Result")]
-        public int ResultID { get; set; }
         #endregion
 
         #region Associations

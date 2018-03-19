@@ -19,9 +19,6 @@ namespace ModelEntities.Entities
         public int QCommentID { get; set; }
         // représente le contenu du commentaire
         public string Content { get; set; }
-
-        [ForeignKey("Question")]
-        public int QuestionID { get; set; }
         #endregion
 
         #region Associations

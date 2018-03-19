@@ -18,11 +18,6 @@ namespace ModelEntities.Entities
         public int QuizzID { get; set; }
         public string CandidateFirstname { get; set; }
         public string CandidateLastname { get; set; }
-
-        [ForeignKey("Difficulty")]
-        public int DifficultyID { get; set; }
-        [ForeignKey("Result")]
-        public int ResultID { get; set; }
         #endregion
 
         #region Associations
