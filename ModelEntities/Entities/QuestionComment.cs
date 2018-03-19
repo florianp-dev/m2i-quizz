@@ -23,6 +23,7 @@ namespace ModelEntities.Entities
 
         #region Associations
         // Un commentaire n'appartient qu'à une seule question
+        [Required]
         public virtual Question LinkedQuestion { get; set; }
         #endregion
     }
