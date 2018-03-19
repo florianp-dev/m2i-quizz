@@ -54,11 +54,9 @@
     <Compile Include="Entities\Difficulty.cs" />
     <Compile Include="Entities\QuestionComment.cs" />
     <Compile Include="Entities\Question.cs" />
-    <Compile Include="Entities\QuestionQuizz.cs" />
     <Compile Include="Entities\QuestionType.cs" />
     <Compile Include="Entities\Quizz.cs" />
     <Compile Include="Entities\Answer.cs" />
-    <Compile Include="Entities\ReponseQuiz.cs" />
     <Compile Include="Entities\Techno.cs" />
     <Compile Include="Entities\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -3,6 +3,7 @@
 /// </remarks>
 /// <summary>
 /// Représente les types de question possibles
+/// (ex: technique, ouverte, etc)
 /// </summary>
 
 using System.Collections.Generic;
