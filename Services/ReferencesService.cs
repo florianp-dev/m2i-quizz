@@ -1,17 +1,37 @@
-﻿using System;
+﻿/// <remarks>
+/// Florian POUCHELET
+/// </remarks>
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ModelEntities.Entities;
 
 namespace Services
 {
-    class ReferencesService
+    public class ReferencesService
     {
 
-        /* 
-         * GetTechnologies : retourner la liste de toutes les technologies
-         * GetSkills : retourner la liste de tous les niveaux
-         */
+        private static DataBaseContext db = new DataBaseContext();
+
+        /// <summary>
+        /// Procure la liste des difficultés
+        /// </summary>
+        /// <returns>Une liste des difficultés disponibles</returns>
+        public static List<Difficulty> getSkills()
+        {
+            return db.Difficulties.ToList();
+        }
+
+        /// <summary>
+        /// Procure la liste des technolgies
+        /// </summary>
+        /// <returns>Une liste des technos dispo</returns>
+        public static List<Techno> GetTechnos()
+        {
+            return db.Technos.ToList();
+        }
     }
 }
