@@ -20,13 +20,17 @@ namespace ModelEntities.Entities
         public int AnswerID { get; set; }
         public string Content { get; set; }
         public bool IsCorrect { get; set; }
+
+        // TODO Ajouter les foreignKey
+        [ForeignKey("Question")]
+        public int QuestionID { get; set; }
         #endregion
 
         #region Associations
         // Réponse a une Question
-        public virtual ICollection<Question> LinkedQuestion { get; set; }
+        public virtual Question LinkedQuestion { get; set; }
         // Une réponse appartient à plusieurs résultats
-        public virtual ICollection<Result> LinkedResults { get; set; }
+        public virtual Result LinkedResults { get; set; }
         #endregion
     }
 }

@@ -20,6 +20,17 @@ namespace ModelEntities.Entities
         public int QuestionID { get; set; }
         public string Libelle { get; set; }
         public bool IsActive { get; set; }
+
+        [ForeignKey("Techno")]
+        public int TechnoID { get; set; }
+        [ForeignKey("QuestionType")]
+        public int QTypeID { get; set; }
+        [ForeignKey("Difficulty")]
+        public int DifficultyID { get; set; }
+        [ForeignKey("Quizz")]
+        public int QuizzID { get; set; }
+        [ForeignKey("QuestionComment")]
+        public int QCommentID { get; set; }
         #endregion
 
         #region Associations
@@ -30,7 +41,7 @@ namespace ModelEntities.Entities
         // Une question n'a qu'une seule difficulté
         public virtual Difficulty Difficulty { get; set; }
         // Une question peut appartenir à plusieurs Quizz
-        public virtual ICollection<Quizz> LinkedQuizzes { get; set; }
+        public virtual Quizz LinkedQuizz { get; set; }
         // Une question a entre 0 et 4 réponses
         public virtual ICollection<Answer> LinkedResponse { get; set; }
         // Une question a au plus un commentaire

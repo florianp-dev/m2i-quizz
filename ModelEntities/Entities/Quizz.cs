@@ -19,10 +19,13 @@ namespace ModelEntities.Entities
         public int QuizzID { get; set; }
         public string CandidateFirstname { get; set; }
         public string CandidateLastname { get; set; }
+
+        //todo Ajouter les FK
         #endregion
 
         #region Associations
         public virtual User LinkedUser { get; set; }
+        public virtual Techno LinkedTechno { get; set; }
         public virtual Difficulty Difficulty { get; set; }
         public virtual ICollection<Question> LinkedQuestions { get; set; }
         public virtual Result LinkedResult { get; set; }
