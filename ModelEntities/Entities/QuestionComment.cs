@@ -19,12 +19,15 @@ namespace ModelEntities.Entities
         public int QCommentID { get; set; }
         // représente le contenu du commentaire
         public string Content { get; set; }
+
+        [ForeignKey("Answer")]
+        public int AnswerID { get; set; }
         #endregion
 
         #region Associations
-        // Un commentaire n'appartient qu'à une seule question
+        // Un commentaire n'appartient qu'à une seule réponse
         [Required]
-        public virtual Question LinkedQuestion { get; set; }
+        public virtual Answer LinkedAnswer { get; set; }
         #endregion
     }
 }

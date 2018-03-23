@@ -23,6 +23,8 @@ namespace ModelEntities.Entities
         /// Donne le pourcentage de questions de cette difficulté à incorporer à un quizz
         /// </summary>
         public int Percentage { get; set; }
+
+        // TODO gérer les difficultés selon le pourcentage
         #endregion
 
         #region Associations
