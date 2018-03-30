@@ -21,14 +21,12 @@ namespace ModelEntities.Entities
 
         [ForeignKey("LinkedQuizz")]
         public int QuizzID { get; set; }
-        [ForeignKey("LinkedResultAnswers")]
-        public int ResultAnswerID { get; set; }
         #endregion
 
         #region Associations
         [Required]
         public virtual Quizz LinkedQuizz { get; set; }
-        public virtual ResultAnswer LinkedResultAnswers { get; set; }
+        public virtual List<Answer> LinkedAnswers { get; set; }
         #endregion
     }
 }

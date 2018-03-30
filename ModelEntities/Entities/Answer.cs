@@ -32,7 +32,7 @@ namespace ModelEntities.Entities
         public virtual Question LinkedQuestion { get; set; }
         public virtual AnswerComment LinkedComment { get; set; }
         // Une réponse appartient à plusieurs résultats
-        public virtual ResultAnswer LinkedResultAnswers { get; set; }
+        public virtual List<Result> LinkedResults { get; set; }
         #endregion
     }
 }
