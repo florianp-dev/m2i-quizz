@@ -22,11 +22,8 @@ namespace ModelEntities.Entities
         
         /// <summary>
         /// Spécifie si la difficulté est "quizz" ou "question"
-        /// <summary>
-        /// Donne le pourcentage de questions de cette difficulté à incorporer à un quizz
         /// </summary>
         public string DifficultyType { get; set; }
-        public int Percentage { get; set; }
         #endregion
 
         #region Associations

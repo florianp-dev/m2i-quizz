@@ -30,7 +30,7 @@ namespace ModelEntities.Entities
             Database.SetInitializer(new DropCreateDatabaseAlways<DataBaseContext>());
 
             //Pour la migration
-            Database.SetInitializer(new MigrateDatabaseToLatestVersion<DataBaseContext, Migrations.Configuration>()); 
+            //Database.SetInitializer(new MigrateDatabaseToLatestVersion<DataBaseContext, Migrations.Configuration>()); 
             
         }
     }
