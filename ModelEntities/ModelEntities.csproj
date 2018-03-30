@@ -66,11 +66,20 @@
     <Compile Include="Entities\Result.cs" />
     <Compile Include="Entities\Techno.cs" />
     <Compile Include="Entities\User.cs" />
-    <Compile Include="Migrations\201803301305308_v2.1.cs" />
-    <Compile Include="Migrations\201803301305308_v2.1.Designer.cs">
-      <DependentUpon>201803301305308_v2.1.cs</DependentUpon>
+    <Compile Include="Migrations\201803301410367_app-v2.cs" />
+    <Compile Include="Migrations\201803301410367_app-v2.Designer.cs">
+      <DependentUpon>201803301410367_app-v2.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="ModelViews\AnswerViewModel.cs" />
+    <Compile Include="ModelViews\DifficultyViewModel.cs" />
+    <Compile Include="ModelViews\QuestionCommentViewModel.cs" />
+    <Compile Include="ModelViews\QuestionTypeViewModel.cs" />
+    <Compile Include="ModelViews\QuestionViewModel.cs" />
+    <Compile Include="ModelViews\QuizzViewModel.cs" />
+    <Compile Include="ModelViews\ResultViewModel.cs" />
+    <Compile Include="ModelViews\TechnoViewModel.cs" />
+    <Compile Include="ModelViews\UserViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -78,11 +87,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="ModelViews\" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\201803301305308_v2.1.resx">
-      <DependentUpon>201803301305308_v2.1.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201803301410367_app-v2.resx">
+      <DependentUpon>201803301410367_app-v2.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

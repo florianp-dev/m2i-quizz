@@ -27,11 +27,10 @@ namespace ModelEntities.Entities
         public DataBaseContext() : base("QuizzApplication")
         {
             //Pour la création de la base
-            Database.SetInitializer(new DropCreateDatabaseAlways<DataBaseContext>());
+            //Database.SetInitializer(new DropCreateDatabaseAlways<DataBaseContext>());
 
             //Pour la migration
             //Database.SetInitializer(new MigrateDatabaseToLatestVersion<DataBaseContext, Migrations.Configuration>()); 
-            
         }
     }
 }

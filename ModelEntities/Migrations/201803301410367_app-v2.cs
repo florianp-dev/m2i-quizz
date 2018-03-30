@@ -3,7 +3,7 @@ namespace ModelEntities.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class v21 : DbMigration
+    public partial class appv2 : DbMigration
     {
         public override void Up()
         {
