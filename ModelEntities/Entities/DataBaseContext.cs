@@ -14,7 +14,7 @@ namespace ModelEntities.Entities
         public DbSet<Answer> Answers { get; set; }
         public DbSet<Difficulty> Difficulties { get; set; }
         public DbSet<Question> Questions { get; set; }
-        public DbSet<QuestionComment> QComments { get; set; }
+        public DbSet<AnswerComment> QComments { get; set; }
         public DbSet<QuestionType> QTypes { get; set; }
         public DbSet<Quizz> Quizzes { get; set; }
         public DbSet<Result> Results { get; set; }

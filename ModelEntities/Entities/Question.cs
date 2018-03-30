@@ -18,34 +18,28 @@ namespace ModelEntities.Entities
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int QuestionID { get; set; }
-        public string Libelle { get; set; }
+        public string Wording { get; set; }
         public bool IsActive { get; set; }
 
-        [ForeignKey("Techno")]
+        [ForeignKey("LinkedTechno")]
         public int TechnoID { get; set; }
-        [ForeignKey("QuestionType")]
+        [ForeignKey("LinkedQType")]
         public int QTypeID { get; set; }
-        [ForeignKey("Difficulty")]
+        [ForeignKey("LinkedDifficulty")]
         public int DifficultyID { get; set; }
-        [ForeignKey("Quizz")]
-        public int QuizzID { get; set; }
-        [ForeignKey("QuestionComment")]
-        public int QCommentID { get; set; }
         #endregion
 
         #region Associations
         // Une Question a une seule techno
-        public virtual Techno Techno { get; set; }
+        public virtual Techno LinkedTechno { get; set; }
         // Une question à un type de question
-        public virtual QuestionType QType { get; set; }
+        public virtual QuestionType LinkedQType { get; set; }
         // Une question n'a qu'une seule difficulté
-        public virtual Difficulty Difficulty { get; set; }
+        public virtual Difficulty LinkedDifficulty { get; set; }
         // Une question peut appartenir à plusieurs Quizz
-        public virtual Quizz LinkedQuizz { get; set; }
+        public virtual List<Quizz> LinkedQuizzes { get; set; }
         // Une question a entre 0 et 4 réponses
-        public virtual ICollection<Answer> LinkedResponse { get; set; }
-        // Une question a au plus un commentaire
-        public virtual QuestionComment LinkedQuestionComment { get; set; }
+        public virtual List<Answer> LinkedResponse { get; set; }
         #endregion
     }
 }

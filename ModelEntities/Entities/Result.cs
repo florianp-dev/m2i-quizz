@@ -18,12 +18,15 @@ namespace ModelEntities.Entities
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int ResultID { get; set; }
+
+        [ForeignKey("LinkedQuizz")]
+        public int QuizzID { get; set; }
         #endregion
 
         #region Associations
         [Required]
         public virtual Quizz LinkedQuizz { get; set; }
-        public virtual ICollection<Answer> LinkedAnswers { get; set; }
+        public virtual List<Answer> LinkedAnswers { get; set; }
         #endregion
     }
 }
