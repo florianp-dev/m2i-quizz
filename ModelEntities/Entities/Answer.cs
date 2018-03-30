@@ -23,6 +23,8 @@ namespace ModelEntities.Entities
 
         [ForeignKey("LinkedQuestion")]
         public int QuestionID { get; set; }
+        [ForeignKey("LinkedResultAnswers")]
+        public int ResultAnswerID { get; set; }
         #endregion
 
         #region Associations

@@ -62,6 +62,7 @@
     <Compile Include="Entities\Quizz.cs" />
     <Compile Include="Entities\Answer.cs" />
     <Compile Include="Entities\Result.cs" />
+    <Compile Include="Entities\ResultAnswer.cs" />
     <Compile Include="Entities\Techno.cs" />
     <Compile Include="Entities\User.cs" />
     <Compile Include="Migrations\201803191356312_Initial-v1.cs" />
