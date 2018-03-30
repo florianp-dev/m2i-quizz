@@ -36,8 +36,6 @@ namespace ModelEntities.Entities
         public virtual QuestionType LinkedQType { get; set; }
         // Une question n'a qu'une seule difficulté
         public virtual Difficulty LinkedDifficulty { get; set; }
-        // Une question peut appartenir à plusieurs Quizz
-        public virtual List<Quizz> LinkedQuizzes { get; set; }
         // Une question a entre 0 et 4 réponses
         public virtual List<Answer> LinkedResponse { get; set; }
         #endregion

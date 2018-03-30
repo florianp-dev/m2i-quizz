@@ -20,14 +20,17 @@ namespace ModelEntities.Entities
         public DbSet<Result> Results { get; set; }
         public DbSet<Techno> Technos { get; set; }
         public DbSet<User> Users { get; set; }
+        public DbSet<MasterDifficulty> MasterDifficulties { get; set; }
+        public DbSet<Percent> Percents { get; set; }
+
 
         public DataBaseContext() : base("QuizzApplication")
         {
             //Pour la création de la base
-            //Database.SetInitializer(new DropCreateDatabaseAlways<DataBaseContext>());
+            Database.SetInitializer(new DropCreateDatabaseAlways<DataBaseContext>());
 
             //Pour la migration
-            Database.SetInitializer(new MigrateDatabaseToLatestVersion<DataBaseContext, Migrations.Configuration>()); 
+            //Database.SetInitializer(new MigrateDatabaseToLatestVersion<DataBaseContext, Migrations.Configuration>()); 
             
         }
     }
