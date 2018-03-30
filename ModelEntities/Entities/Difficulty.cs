@@ -19,17 +19,21 @@ namespace ModelEntities.Entities
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int DifficultyID { get; set; }
         public string Wording { get; set; }
+        
+        /// <summary>
+        /// Spécifie si la difficulté est "quizz" ou "question"
+        /// </summary>
+        public string DifficultyType { get; set; }
+
         /// <summary>
         /// Donne le pourcentage de questions de cette difficulté à incorporer à un quizz
         /// </summary>
         public int Percentage { get; set; }
-
-        // TODO gérer les difficultés selon le pourcentage
         #endregion
 
         #region Associations
-        public virtual ICollection<Quizz> LinkedQuizz { get; set; }
-        public virtual ICollection<Question> LinkedQuestion { get; set; }
+        public virtual List<Quizz> LinkedQuizz { get; set; }
+        public virtual List<Question> LinkedQuestion { get; set; }
         #endregion
     }
 }

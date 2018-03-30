@@ -55,7 +55,7 @@
   <ItemGroup>
     <Compile Include="Entities\DataBaseContext.cs" />
     <Compile Include="Entities\Difficulty.cs" />
-    <Compile Include="Entities\QuestionComment.cs" />
+    <Compile Include="Entities\AnswerComment.cs" />
     <Compile Include="Entities\Question.cs" />
     <Compile Include="Entities\QuestionType.cs" />
     <Compile Include="Entities\Quizz.cs" />
