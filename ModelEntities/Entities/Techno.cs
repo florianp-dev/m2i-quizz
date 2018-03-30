@@ -24,7 +24,8 @@ namespace ModelEntities.Entities
         #region Associations
         /* membres de classe liés à la cardinalité des objets */
         // Une techno peut avoir plusieurs questions
-        public virtual ICollection<Question> LinkedQuestions { get; set; }
+        public virtual List<Question> LinkedQuestions { get; set; }
+        public virtual List<Quizz> LinkedQuizzes { get; set; }
         #endregion
     }
 }
