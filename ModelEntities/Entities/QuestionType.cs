@@ -23,7 +23,7 @@ namespace ModelEntities.Entities
 
         #region Associations
         // Un type de question a plusieurs questions
-        public virtual ICollection<Question> LinkedQuestions { get; set; }
+        public virtual List<Question> LinkedQuestions { get; set; }
         #endregion
     }
 }

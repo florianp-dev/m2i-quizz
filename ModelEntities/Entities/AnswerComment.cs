@@ -10,7 +10,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ModelEntities.Entities
 {
-    public class QuestionComment
+    public class AnswerComment
     {
         #region Properties
         /* membres de classe propres à l'objet */
@@ -20,7 +20,7 @@ namespace ModelEntities.Entities
         // représente le contenu du commentaire
         public string Content { get; set; }
 
-        [ForeignKey("Answer")]
+        [ForeignKey("LinkedAnswer")]
         public int AnswerID { get; set; }
         #endregion
 

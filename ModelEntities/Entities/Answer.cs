@@ -21,8 +21,7 @@ namespace ModelEntities.Entities
         public string Content { get; set; }
         public bool IsCorrect { get; set; }
 
-        // TODO Ajouter les foreignKey
-        [ForeignKey("Question")]
+        [ForeignKey("LinkedQuestion")]
         public int QuestionID { get; set; }
         #endregion
 
@@ -30,7 +29,7 @@ namespace ModelEntities.Entities
         // Réponse a une Question
         public virtual Question LinkedQuestion { get; set; }
         // Une réponse appartient à plusieurs résultats
-        public virtual Result LinkedResults { get; set; }
+        public virtual List<Result> LinkedResults { get; set; }
         #endregion
     }
 }
