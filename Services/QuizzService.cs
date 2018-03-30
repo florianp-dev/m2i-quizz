@@ -12,21 +12,28 @@ namespace Services
     public class QuizzService
     {
 
-        private static DataBaseContext db = new DataBaseContext();
+        private static DataBaseContext _db = new DataBaseContext();
 
-         /* GetAllQuizzes() : retourner la liste de tous les Quizz */
+        /// <summary>
+         /// Fournit tous les Quizz
+         /// </summary>
+         /// <returns>Une liste des quizz présents dans la base</returns>
         public static List<Quizz> GetAllQuizzes()
         {
-            return db.Quizzes.ToList();
+            return _db.Quizzes.ToList();
         }
 
-        /* GetQuizById() : retourner un Quiz par id */
-        public static Quizz GetQuizById(int Id)
+        /// <summary>
+        /// Fournit un Quizz en particulier
+        /// </summary>
+        /// <param name="id">ID du quizz à récupérer</param>
+        /// <returns>Retourn le Quizz spécifié</returns>
+        public static Quizz GetQuizById(int id)
         {
             Quizz rQuizz = new Quizz();
-            using (db)
+            using (_db)
             {
-                rQuizz = db.Quizzes.Single(m => m.QuizzID == Id);
+                rQuizz = _db.Quizzes.Single(m => m.QuizzID == id);
             }       
             return rQuizz;
         }
@@ -34,33 +41,36 @@ namespace Services
         /* CreateQuiz : Créer le quiz et les questions liées*/
         public void CreateQuiz(Quizz unQuizz)
         {
-            using (db)
-            {
-                db.Quizzes.Add(unQuizz);
-                db.SaveChanges();
-            }
+            // TODO Générer le quizz aléatoirement selon difficulté
         }
 
-        /* UpdateQuizAnswer : sauvegarder la(es) réponse(s) pour une question donnée*/
-        public void AddQuizAnswer(int idQuestion, Answer unResult)
+        /// <summary>
+        /// Ajoute une réponse à une question
+        /// </summary>
+        /// <param name="idQuestion">ID de la question à laquelle ajouter une réponse</param>
+        /// <param name="answer">La réponse à ajouter</param>
+        public void AddQuizAnswer(int idQuestion, Answer answer)
        {
-           using (db)
+           using (_db)
            {
-               db.Answers.Add(unResult);
-               db.SaveChanges();
+                _db.Questions.Find(idQuestion).LinkedResponse.Add(answer);
+               _db.SaveChanges();
            }
 
        }
 
-       /* UpdateQuizAnswers : sauvegarder la(es) réponse(s) pour toute les questions du Quiz.*/
-        public void AddQuizAnswers(List<Answer> desResult)
+       /// <summary>
+       /// Ajoute une liste de réponses
+       /// </summary>
+       /// <param name="answers">Liste de réponses à ajouter</param>
+        public void AddQuizAnswers(List<Answer> answers)
         {
-            using (db)
+            using (_db)
             {
-                foreach (var result in desResult)
+                foreach (var result in answers)
                 {
-                    db.Answers.Add(result);
-                    db.SaveChanges();
+                    _db.Answers.Add(result);
+                    _db.SaveChanges();
                 }
                
             }
