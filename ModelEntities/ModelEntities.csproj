@@ -73,6 +73,15 @@
       <DependentUpon>201803191552054_Initial-v1.9.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="ModelViews\AnswerViewModel.cs" />
+    <Compile Include="ModelViews\DifficultyViewModel.cs" />
+    <Compile Include="ModelViews\QuestionCommentViewModel.cs" />
+    <Compile Include="ModelViews\QuestionTypeViewModel.cs" />
+    <Compile Include="ModelViews\QuestionViewModel.cs" />
+    <Compile Include="ModelViews\QuizzViewModel.cs" />
+    <Compile Include="ModelViews\ResultViewModel.cs" />
+    <Compile Include="ModelViews\TechnoViewModel.cs" />
+    <Compile Include="ModelViews\UserViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -87,8 +96,6 @@
       <DependentUpon>201803191552054_Initial-v1.9.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="ModelViews\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
