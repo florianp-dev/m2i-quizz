@@ -71,8 +71,11 @@
       <DependentUpon>201803301410367_app-v2.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="ModelViews\AnswerCommentViewModel.cs" />
     <Compile Include="ModelViews\AnswerViewModel.cs" />
     <Compile Include="ModelViews\DifficultyViewModel.cs" />
+    <Compile Include="ModelViews\MasterDifficultyViewModel.cs" />
+    <Compile Include="ModelViews\PercentViewModel.cs" />
     <Compile Include="ModelViews\QuestionCommentViewModel.cs" />
     <Compile Include="ModelViews\QuestionTypeViewModel.cs" />
     <Compile Include="ModelViews\QuestionViewModel.cs" />
