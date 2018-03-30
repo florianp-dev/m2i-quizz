@@ -26,7 +26,7 @@ namespace ModelEntities.Entities
         #region Associations
         [Required]
         public virtual Quizz LinkedQuizz { get; set; }
-        public virtual List<Answer> LinkedAnswers { get; set; }
+        public virtual ResultAnswer LinkedResultAnswers { get; set; }
         #endregion
     }
 }
