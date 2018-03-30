@@ -24,13 +24,15 @@ namespace ModelEntities.Entities
         // TODO Ajouter les foreignKey
         [ForeignKey("Question")]
         public int QuestionID { get; set; }
+        [ForeignKey("LinkedResultAnswers")]
+        public int ResultAnswerID { get; set; }
         #endregion
 
         #region Associations
         // Réponse a une Question
         public virtual Question LinkedQuestion { get; set; }
         // Une réponse appartient à plusieurs résultats
-        public virtual Result LinkedResults { get; set; }
+        public virtual ResultAnswer LinkedResultAnswers { get; set; }
         #endregion
     }
 }
