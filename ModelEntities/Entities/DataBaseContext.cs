@@ -28,6 +28,7 @@ namespace ModelEntities.Entities
 
             //Pour la migration
             Database.SetInitializer(new MigrateDatabaseToLatestVersion<DataBaseContext, Migrations.Configuration>()); 
+            
         }
     }
 }
