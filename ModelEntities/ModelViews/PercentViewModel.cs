@@ -17,7 +17,7 @@ namespace ModelEntities.ModelViews
         public decimal Beginner { get; set; }
 
         [Required]
-        [Display(Name = "TIntermédiaire : ")]
+        [Display(Name = "Intermédiaire : ")]
         public decimal Intermediate { get; set; }
 
         [Required]
