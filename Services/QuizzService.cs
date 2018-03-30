@@ -13,13 +13,7 @@ namespace Services
     {
 
         private static DataBaseContext db = new DataBaseContext();
-        /* 
-         
-        
-         
-         
-        
-         */
+
          /* GetAllQuizzes() : retourner la liste de tous les Quizz */
         public static List<Quizz> GetAllQuizzes()
         {
