@@ -7,13 +7,17 @@ using System.Threading.Tasks;
 
 namespace ModelEntities.ModelViews
 {
-    class DifficultyViewModel
+    class MasterDifficultyViewModel
     {
-        [Display(Name = "ID Difficulté : ")]
-        public int DifficultyID { get; set; }
+        [Display(Name = "Master Difficulty ID : ")]
+        public int MasterDifficultyID { get; set; }
 
         [Required]
         [Display(Name = "Libellé : ")]
         public string Wording { get; set; }
+
+        [Required]
+        [Display(Name = "Type de Difficulté : ")]
+        public string DifficultyType { get; set; }
     }
 }

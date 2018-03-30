@@ -7,10 +7,9 @@ using System.Threading.Tasks;
 
 namespace ModelEntities.ModelViews
 {
-    class QuestionCommentViewModel
+    class AnswerCommentViewModel
     {
-       
-        [Display(Name = " ID Commentaire : ")]
+        [Display(Name = "QCommentID : ")]
         public int QCommentID { get; set; }
 
         [Required]
