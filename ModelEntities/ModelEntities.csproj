@@ -70,6 +70,10 @@
     <Compile Include="Migrations\201803301410367_app-v2.Designer.cs">
       <DependentUpon>201803301410367_app-v2.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201803301450448_v3.cs" />
+    <Compile Include="Migrations\201803301450448_v3.Designer.cs">
+      <DependentUpon>201803301450448_v3.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="ModelViews\AnswerCommentViewModel.cs" />
     <Compile Include="ModelViews\AnswerViewModel.cs" />
@@ -91,6 +95,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201803301410367_app-v2.resx">
       <DependentUpon>201803301410367_app-v2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201803301450448_v3.resx">
+      <DependentUpon>201803301450448_v3.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
