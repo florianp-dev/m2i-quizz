@@ -1,23 +1,34 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Data.Entity;
 using System.Linq;
-using System.Web;
+using System.Net;
 using System.Web.Mvc;
+using ModelEntities.Entities;
 
 namespace _FilRouge.Web_Quizz.Controllers
 {
     public class DifficultiesController : Controller
     {
+        private DataBaseContext db = new DataBaseContext();
+
         // GET: Difficulties
         public ActionResult Index()
         {
-            return View();
+            return View(db.Difficulties.ToList());
         }
 
         // GET: Difficulties/Details/5
-        public ActionResult Details(int id)
+        public ActionResult Details(int? id)
         {
-            return View();
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Difficulty difficulty = db.Difficulties.Find(id);
+            if (difficulty == null)
+            {
+                return HttpNotFound();
+            }
+            return View(difficulty);
         }
 
         // GET: Difficulties/Create
@@ -27,63 +38,86 @@ namespace _FilRouge.Web_Quizz.Controllers
         }
 
         // POST: Difficulties/Create
+        // Afin de déjouer les attaques par sur-validation, activez les propriétés spécifiques que vous voulez lier. Pour 
+        // plus de détails, voir  https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        [ValidateAntiForgeryToken]
+        public ActionResult Create([Bind(Include = "DifficultyID,Wording,DifficultyType")] Difficulty difficulty)
         {
-            try
+            if (ModelState.IsValid)
             {
-                // TODO: Add insert logic here
-
+                db.Difficulties.Add(difficulty);
+                db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            catch
-            {
-                return View();
-            }
+
+            return View(difficulty);
         }
 
         // GET: Difficulties/Edit/5
-        public ActionResult Edit(int id)
+        public ActionResult Edit(int? id)
         {
-            return View();
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Difficulty difficulty = db.Difficulties.Find(id);
+            if (difficulty == null)
+            {
+                return HttpNotFound();
+            }
+            return View(difficulty);
         }
 
         // POST: Difficulties/Edit/5
+        // Afin de déjouer les attaques par sur-validation, activez les propriétés spécifiques que vous voulez lier. Pour 
+        // plus de détails, voir  https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit([Bind(Include = "DifficultyID,Wording,DifficultyType")] Difficulty difficulty)
         {
-            try
+            if (ModelState.IsValid)
             {
-                // TODO: Add update logic here
-
+                db.Entry(difficulty).State = EntityState.Modified;
+                db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            catch
-            {
-                return View();
-            }
+            return View(difficulty);
         }
 
         // GET: Difficulties/Delete/5
-        public ActionResult Delete(int id)
+        public ActionResult Delete(int? id)
         {
-            return View();
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Difficulty difficulty = db.Difficulties.Find(id);
+            if (difficulty == null)
+            {
+                return HttpNotFound();
+            }
+            return View(difficulty);
         }
 
         // POST: Difficulties/Delete/5
-        [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeleteConfirmed(int id)
         {
-            try
-            {
-                // TODO: Add delete logic here
+            Difficulty difficulty = db.Difficulties.Find(id);
+            db.Difficulties.Remove(difficulty);
+            db.SaveChanges();
+            return RedirectToAction("Index");
+        }
 
-                return RedirectToAction("Index");
-            }
-            catch
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing)
             {
-                return View();
+                db.Dispose();
             }
+            base.Dispose(disposing);
         }
     }
 }
