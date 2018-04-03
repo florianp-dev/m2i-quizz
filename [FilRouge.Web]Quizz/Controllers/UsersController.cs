@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Data.Entity;
+﻿using System.Data.Entity;
 using System.Linq;
 using System.Net;
-using System.Web;
 using System.Web.Mvc;
 using ModelEntities.Entities;
 
@@ -17,7 +13,7 @@ namespace _FilRouge.Web_Quizz.Controllers
         // GET: Users
         public ActionResult Index()
         {
-            return View(db.Users.ToList());
+            return View(db.QuizzUsers.ToList());
         }
 
         // GET: Users/Details/5
@@ -27,7 +23,7 @@ namespace _FilRouge.Web_Quizz.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            User user = db.Users.Find(id);
+            User user = db.QuizzUsers.Find(id);
             if (user == null)
             {
                 return HttpNotFound();
@@ -50,7 +46,7 @@ namespace _FilRouge.Web_Quizz.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Users.Add(user);
+                db.QuizzUsers.Add(user);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -65,7 +61,7 @@ namespace _FilRouge.Web_Quizz.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            User user = db.Users.Find(id);
+            User user = db.QuizzUsers.Find(id);
             if (user == null)
             {
                 return HttpNotFound();
@@ -96,7 +92,7 @@ namespace _FilRouge.Web_Quizz.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            User user = db.Users.Find(id);
+            User user = db.QuizzUsers.Find(id);
             if (user == null)
             {
                 return HttpNotFound();
@@ -109,8 +105,8 @@ namespace _FilRouge.Web_Quizz.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            User user = db.Users.Find(id);
-            db.Users.Remove(user);
+            User user = db.QuizzUsers.Find(id);
+            db.QuizzUsers.Remove(user);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

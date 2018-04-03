@@ -6,10 +6,12 @@
 /// </summary>
 
 using System.Data.Entity;
+using Microsoft.AspNet.Identity.EntityFramework;
+using ModelEntities.ModelViews;
 
 namespace ModelEntities.Entities
 {
-    public class DataBaseContext : DbContext
+    public class DataBaseContext : IdentityDbContext<ApplicationUser>
     {
         public DbSet<Answer> Answers { get; set; }
         public DbSet<Difficulty> Difficulties { get; set; }
@@ -19,7 +21,7 @@ namespace ModelEntities.Entities
         public DbSet<Quizz> Quizzes { get; set; }
         public DbSet<Result> Results { get; set; }
         public DbSet<Techno> Technos { get; set; }
-        public DbSet<User> Users { get; set; }
+        public DbSet<User> QuizzUsers { get; set; }
         public DbSet<MasterDifficulty> MasterDifficulties { get; set; }
         public DbSet<Percent> Percents { get; set; }
 
@@ -31,6 +33,11 @@ namespace ModelEntities.Entities
 
             //Pour la migration
             //Database.SetInitializer(new MigrateDatabaseToLatestVersion<DataBaseContext, Migrations.Configuration>()); 
+        }
+
+        public static DataBaseContext Create()
+        {
+           return new DataBaseContext();
         }
     }
 }
