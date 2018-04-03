@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ModelEntities.ModelViews
 {
-    class DifficultyViewModel
+    public class DifficultyViewModel
     {
         [Display(Name = "ID Difficulté : ")]
         public int DifficultyID { get; set; }
