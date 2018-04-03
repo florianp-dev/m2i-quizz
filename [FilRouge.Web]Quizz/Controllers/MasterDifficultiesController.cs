@@ -1,13 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Data.Entity;
+﻿using System.Data.Entity;
 using System.Linq;
 using System.Net;
-using System.Web;
 using System.Web.Mvc;
 using ModelEntities.Entities;
-using Services;
 
 namespace _FilRouge.Web_Quizz.Controllers
 {
@@ -18,9 +13,9 @@ namespace _FilRouge.Web_Quizz.Controllers
         // GET: MasterDifficulties
         public ActionResult GetAllMasterDifficulty()
         {
-            return View("Index", db.Technos.ToList());
+            return View("Index", db.MasterDifficulties.ToList());
         }
-        private DataBaseContext db = new DataBaseContext();
+
         //GET: MasterDifficulties/Details/5
         public ActionResult Details(int? id)
           {
