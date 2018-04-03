@@ -1,4 +1,4 @@
-﻿@model ModelEntities.Entities.Difficulty
+﻿@model ModelEntities.ModelViews.DifficultyViewModel
 
 @{
     ViewBag.Title = "Details";
@@ -18,13 +18,6 @@
             @Html.DisplayFor(model => model.Wording)
         </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.DifficultyType)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.DifficultyType)
-        </dd>
 
     </dl>
 </div>

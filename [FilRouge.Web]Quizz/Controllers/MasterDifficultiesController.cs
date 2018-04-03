@@ -11,6 +11,7 @@ using Services;
 
 namespace _FilRouge.Web_Quizz.Controllers
 {
+
     public class MasterDifficultiesController : Controller
     {
         private readonly DataBaseContext db = new DataBaseContext();
@@ -19,9 +20,9 @@ namespace _FilRouge.Web_Quizz.Controllers
         {
             return View("Index", db.Technos.ToList());
         }
-
-         //GET: MasterDifficulties/Details/5
-          public ActionResult Details(int? id)
+        private DataBaseContext db = new DataBaseContext();
+        //GET: MasterDifficulties/Details/5
+        public ActionResult Details(int? id)
           {
               if (id == null)
               {

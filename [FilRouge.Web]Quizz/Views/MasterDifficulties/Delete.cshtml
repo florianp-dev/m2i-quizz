@@ -1,5 +1,4 @@
-﻿@model ModelEntities.Entities.MasterDifficulty
-
+﻿@model ModelEntities.ModelViews.MasterDifficultyViewModel
 @{
     ViewBag.Title = "Delete";
 }
@@ -19,17 +18,11 @@
             @Html.DisplayFor(model => model.Wording)
         </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.DifficultyType)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.DifficultyType)
-        </dd>
 
     </dl>
 
-    @using (Html.BeginForm()) {
+    @using (Html.BeginForm())
+    {
         @Html.AntiForgeryToken()
 
         <div class="form-actions no-color">

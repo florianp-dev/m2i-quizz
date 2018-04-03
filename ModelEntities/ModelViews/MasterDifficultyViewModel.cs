@@ -16,8 +16,5 @@ namespace ModelEntities.ModelViews
         [Display(Name = "Libellé : ")]
         public string Wording { get; set; }
 
-        [Required]
-        [Display(Name = "Type de Difficulté : ")]
-        public string DifficultyType { get; set; }
     }
 }
