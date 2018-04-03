@@ -1,10 +1,10 @@
-﻿@model IEnumerable<ModelEntities.Entities.Difficulty>
+﻿@model IEnumerable<ModelEntities.ModelViews.DifficultyViewModel>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Difficulty";
 }
 
-<h2>Index</h2>
+<h2>Difficultés</h2>
 
 <p>
     @Html.ActionLink("Create New", "Create")
@@ -14,26 +14,21 @@
         <th>
             @Html.DisplayNameFor(model => model.Wording)
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.DifficultyType)
-        </th>
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Wording)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.DifficultyType)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.DifficultyID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.DifficultyID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.DifficultyID })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Wording)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.DifficultyID }) |
+                @Html.ActionLink("Details", "Details", new { id = item.DifficultyID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.DifficultyID })
+            </td>
+        </tr>
+    }
 
 </table>

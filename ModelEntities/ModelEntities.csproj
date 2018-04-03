@@ -78,6 +78,7 @@
     <Compile Include="ModelViews\AnswerCommentViewModel.cs" />
     <Compile Include="ModelViews\AnswerViewModel.cs" />
     <Compile Include="ModelViews\DifficultyViewModel.cs" />
+    <Compile Include="ModelViews\Map.cs" />
     <Compile Include="ModelViews\MasterDifficultyViewModel.cs" />
     <Compile Include="ModelViews\PercentViewModel.cs" />
     <Compile Include="ModelViews\QuestionTypeViewModel.cs" />
