@@ -19,6 +19,7 @@ namespace ModelEntities.Entities
         public int QuizzID { get; set; }
         public string CandidateFirstname { get; set; }
         public string CandidateLastname { get; set; }
+        public int NbQuestions { get; set; }
         
         [ForeignKey("LinkedUser")]
         public int UserID { get; set; }
