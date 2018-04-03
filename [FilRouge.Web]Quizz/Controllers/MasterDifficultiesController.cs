@@ -13,12 +13,11 @@ namespace _FilRouge.Web_Quizz.Controllers
 {
     public class MasterDifficultiesController : Controller
     {
-        private readonly MasterDifficultiesService _masterdifficultiesService = new MasterDifficultiesService();
+        private readonly DataBaseContext db = new DataBaseContext();
         // GET: MasterDifficulties
         public ActionResult GetAllMasterDifficulty()
         {
-            var masterdifficulty = _masterdifficultiesService.GetAllMasterDifficulty();
-            return View("Index", masterdifficulty);
+            return View("Index", db.Technos.ToList());
         }
 
          //GET: MasterDifficulties/Details/5

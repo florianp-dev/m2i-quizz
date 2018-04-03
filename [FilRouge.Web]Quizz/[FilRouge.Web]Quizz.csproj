@@ -149,6 +149,7 @@
     <Compile Include="Controllers\DifficultiesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MasterDifficultiesController.cs" />
+    <Compile Include="Controllers\TechnoesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -246,6 +247,11 @@
     <Content Include="Views\MasterDifficulties\Details.cshtml" />
     <Content Include="Views\MasterDifficulties\Edit.cshtml" />
     <Content Include="Views\MasterDifficulties\Index.cshtml" />
+    <Content Include="Views\Technoes\Create.cshtml" />
+    <Content Include="Views\Technoes\Delete.cshtml" />
+    <Content Include="Views\Technoes\Details.cshtml" />
+    <Content Include="Views\Technoes\Edit.cshtml" />
+    <Content Include="Views\Technoes\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
