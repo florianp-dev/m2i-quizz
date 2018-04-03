@@ -6,9 +6,10 @@ using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
-using FilRouge.MVC.Models;
+using FilRouge.Web.Models;
+using ModelEntities.Entities;
 
-namespace FilRouge.MVC.Controllers
+namespace FilRouge.Web.Controllers
 {
     [Authorize]
     public class ManageController : Controller

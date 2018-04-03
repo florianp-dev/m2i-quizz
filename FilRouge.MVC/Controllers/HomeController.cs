@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace FilRouge.MVC.Controllers
+namespace FilRouge.Web.Controllers
 {
     public class HomeController : Controller
     {

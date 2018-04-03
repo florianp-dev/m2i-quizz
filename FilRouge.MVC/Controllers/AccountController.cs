@@ -8,9 +8,10 @@ using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
-using FilRouge.MVC.Models;
+using ModelEntities.Entities;
+using ModelEntities.ModelViews;
 
-namespace FilRouge.MVC.Controllers
+namespace FilRouge.Web.Controllers
 {
     [Authorize]
     public class AccountController : Controller

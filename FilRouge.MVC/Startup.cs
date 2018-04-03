@@ -1,8 +1,8 @@
 ﻿using Microsoft.Owin;
 using Owin;
 
-[assembly: OwinStartupAttribute(typeof(FilRouge.MVC.Startup))]
-namespace FilRouge.MVC
+[assembly: OwinStartupAttribute(typeof(FilRouge.Web.Startup))]
+namespace FilRouge.Web
 {
     public partial class Startup
     {
