@@ -3,6 +3,7 @@ using System.Linq;
 using System.Net;
 using System.Web.Mvc;
 using ModelEntities.Entities;
+using Services;
 
 namespace _FilRouge.Web_Quizz.Controllers
 {
@@ -16,7 +17,7 @@ namespace _FilRouge.Web_Quizz.Controllers
             var masterdifficulty = _masterdifficultiesService.GetAllMasterDifficulty();
             return View("Index", masterdifficulty);
         }
-
+        private DataBaseContext db = new DataBaseContext();
         //GET: MasterDifficulties/Details/5
         public ActionResult Details(int? id)
           {
