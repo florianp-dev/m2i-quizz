@@ -148,6 +148,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\DifficultiesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\MasterDifficultiesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -240,11 +241,15 @@
     <Content Include="Views\Difficulties\Details.cshtml" />
     <Content Include="Views\Difficulties\Edit.cshtml" />
     <Content Include="Views\Difficulties\Index.cshtml" />
+    <Content Include="Views\MasterDifficulties\Create.cshtml" />
+    <Content Include="Views\MasterDifficulties\Delete.cshtml" />
+    <Content Include="Views\MasterDifficulties\Details.cshtml" />
+    <Content Include="Views\MasterDifficulties\Edit.cshtml" />
+    <Content Include="Views\MasterDifficulties\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
-    <Folder Include="Views\Difficulties\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
