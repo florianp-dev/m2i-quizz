@@ -74,6 +74,14 @@
     <Compile Include="Migrations\201803301450448_v3.Designer.cs">
       <DependentUpon>201803301450448_v3.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201804030805414_quizz-nbQuestions.cs" />
+    <Compile Include="Migrations\201804030805414_quizz-nbQuestions.Designer.cs">
+      <DependentUpon>201804030805414_quizz-nbQuestions.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201804030905084_difficulties.cs" />
+    <Compile Include="Migrations\201804030905084_difficulties.Designer.cs">
+      <DependentUpon>201804030905084_difficulties.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="ModelViews\AnswerCommentViewModel.cs" />
     <Compile Include="ModelViews\AnswerViewModel.cs" />
@@ -99,6 +107,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201803301450448_v3.resx">
       <DependentUpon>201803301450448_v3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201804030805414_quizz-nbQuestions.resx">
+      <DependentUpon>201804030805414_quizz-nbQuestions.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201804030905084_difficulties.resx">
+      <DependentUpon>201804030905084_difficulties.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

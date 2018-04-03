@@ -5,6 +5,9 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ModelEntities.Entities
 {
+    /// <remarks>
+    /// La master difficulty doit enregistrer les taux dans percent selon le niveau
+    /// </remarks>
     public class MasterDifficulty
     {
         #region Properties
@@ -14,13 +17,12 @@ namespace ModelEntities.Entities
         public int MasterDifficultyID { get; set; }
         public string Wording { get; set; }
 
-        /// <summary>
-        /// Spécifie si la difficulté est "quizz" ou "question"
-        /// </summary>
-        public string DifficultyType { get; set; }
+        [ForeignKey("LinkedPercent")]
+        public int PercentID { get; set; }
         #endregion
 
         #region Associations
+        public virtual Percent LinkedPercent { get; set; }
         public virtual List<Quizz> LinkedQuizz { get; set; }
         #endregion
     }

@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using ModelEntities.Entities;
 
@@ -34,10 +35,35 @@ namespace Services
             return rQuizz;
         }
 
-        /* CreateQuiz : Créer le quiz et les questions liées*/
-        public void CreateQuiz(Quizz unQuizz)
+        /// <summary>
+        /// Créer un quizz de manière aléatoire, selon le niveau spécifié
+        /// </summary>
+        /// <param name="tech">La technologie liée au quizz</param>
+        /// <param name="diff">La difficulté du Quizz</param>
+        /// <param name="nbQuestions">Le nombre de questions voulues</param>
+        /// <param name="fName">Prénom du candidat</param>
+        /// <param name="lName">Nom du candidat</param>
+        /// <returns>Un quizz créé aléatoirement avec le nombre de questions selon le niveau</returns>
+        public Quizz CreateQuiz(Techno tech, MasterDifficulty diff, int nbQuestions, string fName, string lName)
         {
-            // TODO Générer le quizz aléatoirement selon difficulté
+            Quizz quizz = new Quizz
+            {
+                CandidateFirstname = fName,
+                CandidateLastname = lName,
+                LinkedTechno = tech,
+                LinkedMasterDifficulty = diff,
+                NbQuestions = nbQuestions
+            };
+
+            var begginerQuestions = ReferencesService.GetQuestionByDifficulty("Débutant");
+            var interQuestions = ReferencesService.GetQuestionByDifficulty("Intermédiaire");
+            var expertQuestions = ReferencesService.GetQuestionByDifficulty("Expert");
+
+            quizz.LinkedQuestions.AddRange(GenerateRandomQuestionsList(begginerQuestions, (int)diff.LinkedPercent.Beginner * 10));
+            quizz.LinkedQuestions.AddRange(GenerateRandomQuestionsList(interQuestions, (int)diff.LinkedPercent.Intermediate * 10));
+            quizz.LinkedQuestions.AddRange(GenerateRandomQuestionsList(expertQuestions, (int)diff.LinkedPercent.Expert * 10));
+
+            return quizz;
         }
 
         /// <summary>
@@ -71,6 +97,27 @@ namespace Services
                
             }
 
+        }
+
+        /// <summary>
+        /// Fournit une liste aléatoire de questions
+        /// </summary>
+        /// <param name="source">La liste dans laquelle chercher les questions</param>
+        /// <param name="rate">Le nombre de questions à chercher</param>
+        /// <returns>Une liste de questions piochées aléatoirement</returns>
+        private List<Question> GenerateRandomQuestionsList(List<Question> source, int rate)
+        {
+            var quest = new List<Question>();
+            var rand = new Random();
+
+            for (var i = 0; i < rate; i++)
+            {
+                var indice = rand.Next(source.Count);
+                quest.Add(source[indice]);
+                source.RemoveAt(indice);
+            }
+
+            return quest;
         }
     }
 }
