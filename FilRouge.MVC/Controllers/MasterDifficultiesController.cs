@@ -2,12 +2,9 @@
 using System.Linq;
 using System.Net;
 using System.Web.Mvc;
-<<<<<<< Updated upstream:FilRouge.MVC/Controllers/MasterDifficultiesController.cs
-=======
 using ModelEntities.Entities;
 using Services;
 using ModelEntities.ModelViews;
->>>>>>> Stashed changes:[FilRouge.Web]Quizz/Controllers/MasterDifficultiesController.cs
 
 namespace FilRouge.Web.Controllers
 {

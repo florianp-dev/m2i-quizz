@@ -15,12 +15,8 @@ namespace FilRouge.Web.Controllers
         // GET: Users
         public ActionResult Index()
         {
-<<<<<<< Updated upstream:FilRouge.MVC/Controllers/UsersController.cs
-            return View(db.QuizzUsers.ToList());
-=======
             var user = _userService.GetAllUsers();
             return View("Index", user);
->>>>>>> Stashed changes:[FilRouge.Web]Quizz/Controllers/UsersController.cs
         }
 
         // GET: Users/Details/5
