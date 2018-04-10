@@ -55,9 +55,15 @@ namespace Services
                 NbQuestions = nbQuestions
             };
 
-            var begginerQuestions = ReferencesService.GetQuestionByDifficulty("Débutant");
-            var interQuestions = ReferencesService.GetQuestionByDifficulty("Intermédiaire");
-            var expertQuestions = ReferencesService.GetQuestionByDifficulty("Expert");
+            var begginerQuestions = ReferencesService.GetQuestionByDifficulty("Débutant")
+                .Where(q => q.LinkedTechno == tech)
+                .ToList();
+            var interQuestions = ReferencesService.GetQuestionByDifficulty("Intermédiaire")
+                .Where(q => q.LinkedTechno == tech)
+                .ToList();
+            var expertQuestions = ReferencesService.GetQuestionByDifficulty("Expert")
+                .Where(q => q.LinkedTechno == tech)
+                .ToList();
 
             quizz.LinkedQuestions.AddRange(GenerateRandomQuestionsList(begginerQuestions, (int)diff.LinkedPercent.Beginner));
             quizz.LinkedQuestions.AddRange(GenerateRandomQuestionsList(interQuestions, (int)diff.LinkedPercent.Intermediate));
