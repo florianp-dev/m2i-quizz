@@ -135,12 +135,15 @@
     <Compile Include="Migrations\201804031227210_v12.Designer.cs">
       <DependentUpon>201804031227210_v12.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201804101235098_AddUserSupport.cs" />
+    <Compile Include="Migrations\201804101235098_AddUserSupport.Designer.cs">
+      <DependentUpon>201804101235098_AddUserSupport.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="ModelViews\AccountViewModels.cs" />
     <Compile Include="ModelViews\AnswerCommentViewModel.cs" />
     <Compile Include="ModelViews\AnswerViewModel.cs" />
     <Compile Include="ModelViews\DifficultyViewModel.cs" />
-    <Compile Include="ModelViews\IdentityModels.cs" />
     <Compile Include="ModelViews\Map.cs" />
     <Compile Include="ModelViews\MasterDifficultyViewModel.cs" />
     <Compile Include="ModelViews\PercentViewModel.cs" />
@@ -162,6 +165,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201804031227210_v12.resx">
       <DependentUpon>201804031227210_v12.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201804101235098_AddUserSupport.resx">
+      <DependentUpon>201804101235098_AddUserSupport.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

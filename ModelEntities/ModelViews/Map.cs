@@ -49,14 +49,12 @@ namespace ModelEntities.ModelViews
             }
             userViewModel = new UserViewModel()
             {
-                UserID = user.UserID,
+                UserID = user.Id,
                 FirstName = user.FirstName,
                 LastName = user.LastName, 
-                Tel = user.Tel,
-                EmailAddress = user.EmailAddress,
-                Password = user.Password,
-                Society = user.Society,
-                IsAdmin = user.IsAdmin
+                Tel = user.PhoneNumber,
+                EmailAddress = user.Email,
+                Society = user.Society
             };
             return userViewModel;
         }

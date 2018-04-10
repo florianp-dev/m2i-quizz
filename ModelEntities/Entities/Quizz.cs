@@ -22,7 +22,7 @@ namespace ModelEntities.Entities
         public int NbQuestions { get; set; }
         
         [ForeignKey("LinkedUser")]
-        public int UserID { get; set; }
+        public string UserID { get; set; }
         [ForeignKey("LinkedTechno")]
         public int TechnoID { get; set; }
         [ForeignKey("LinkedMasterDifficulty")]

@@ -9,7 +9,7 @@ namespace ModelEntities.ModelViews
 {
     public class UserViewModel
     {
-        public int UserID { get; set; }
+        public string UserID { get; set; }
 
         [Required]
         [Display(Name = "Prénom : ")]

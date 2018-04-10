@@ -7,11 +7,10 @@
 
 using System.Data.Entity;
 using Microsoft.AspNet.Identity.EntityFramework;
-using ModelEntities.ModelViews;
 
 namespace ModelEntities.Entities
 {
-    public class DataBaseContext : IdentityDbContext<ApplicationUser>
+    public class DataBaseContext : IdentityDbContext<User>
     {
         public DbSet<Answer> Answers { get; set; }
         public DbSet<Difficulty> Difficulties { get; set; }
@@ -21,7 +20,6 @@ namespace ModelEntities.Entities
         public DbSet<Quizz> Quizzes { get; set; }
         public DbSet<Result> Results { get; set; }
         public DbSet<Techno> Technos { get; set; }
-        public DbSet<User> QuizzUsers { get; set; }
         public DbSet<MasterDifficulty> MasterDifficulties { get; set; }
         public DbSet<Percent> Percents { get; set; }
 
