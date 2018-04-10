@@ -12,6 +12,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Services", "Services\Servic
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "[FilRouge.Web]Quizz", "FilRouge.MVC\[FilRouge.Web]Quizz.csproj", "{82083F6C-FEF8-4707-83F1-8852E27C89BA}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "[FilRouge.API]Quizz", "[FilRouge.API]Quizz\[FilRouge.API]Quizz.csproj", "{C19C0FEF-B842-4959-B0A0-92F677DB819C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -44,6 +46,14 @@ Global
 		{82083F6C-FEF8-4707-83F1-8852E27C89BA}.Release|Any CPU.Build.0 = Release|Any CPU
 		{82083F6C-FEF8-4707-83F1-8852E27C89BA}.Release|x64.ActiveCfg = Release|Any CPU
 		{82083F6C-FEF8-4707-83F1-8852E27C89BA}.Release|x64.Build.0 = Release|Any CPU
+		{C19C0FEF-B842-4959-B0A0-92F677DB819C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C19C0FEF-B842-4959-B0A0-92F677DB819C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C19C0FEF-B842-4959-B0A0-92F677DB819C}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{C19C0FEF-B842-4959-B0A0-92F677DB819C}.Debug|x64.Build.0 = Debug|Any CPU
+		{C19C0FEF-B842-4959-B0A0-92F677DB819C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C19C0FEF-B842-4959-B0A0-92F677DB819C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C19C0FEF-B842-4959-B0A0-92F677DB819C}.Release|x64.ActiveCfg = Release|Any CPU
+		{C19C0FEF-B842-4959-B0A0-92F677DB819C}.Release|x64.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
