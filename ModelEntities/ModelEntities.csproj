@@ -131,6 +131,10 @@
     <Compile Include="Migrations\201804031340374_initial.Designer.cs">
       <DependentUpon>201804031340374_initial.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201804031227210_v12.cs" />
+    <Compile Include="Migrations\201804031227210_v12.Designer.cs">
+      <DependentUpon>201804031227210_v12.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="ModelViews\AccountViewModels.cs" />
     <Compile Include="ModelViews\AnswerCommentViewModel.cs" />
@@ -155,6 +159,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201804031340374_initial.resx">
       <DependentUpon>201804031340374_initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201804031227210_v12.resx">
+      <DependentUpon>201804031227210_v12.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

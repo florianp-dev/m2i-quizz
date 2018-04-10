@@ -4,6 +4,7 @@ using System.Net;
 using System.Web.Mvc;
 using ModelEntities.Entities;
 using Services;
+using ModelEntities.ModelViews;
 
 
 namespace _FilRouge.Web_Quizz.Controllers
@@ -30,7 +31,7 @@ namespace _FilRouge.Web_Quizz.Controllers
               {
                   return HttpNotFound();
               }
-              return View(difficulty);
+              return View(difficulty.MapToDifficultyViewModel());
           }
         
           // GET: Difficulties/Create
@@ -50,10 +51,10 @@ namespace _FilRouge.Web_Quizz.Controllers
               {
                   db.Difficulties.Add(difficulty);
                   db.SaveChanges();
-                  return RedirectToAction("Index");
+                  return RedirectToAction("GetAllDifficulty");
               }
         
-              return View(difficulty);
+              return View(difficulty.MapToDifficultyViewModel());
           }
         
           // GET: Difficulties/Edit/5
@@ -68,7 +69,7 @@ namespace _FilRouge.Web_Quizz.Controllers
               {
                   return HttpNotFound();
               }
-              return View(difficulty);
+              return View(difficulty.MapToDifficultyViewModel());
           }
         
           // POST: Difficulties/Edit/5
@@ -82,9 +83,9 @@ namespace _FilRouge.Web_Quizz.Controllers
               {
                   db.Entry(difficulty).State = EntityState.Modified;
                   db.SaveChanges();
-                  return RedirectToAction("Index");
+                  return RedirectToAction("GetAllDifficulty");
               }
-              return View(difficulty);
+              return View(difficulty.MapToDifficultyViewModel());
           }
         
           // GET: Difficulties/Delete/5
@@ -99,7 +100,7 @@ namespace _FilRouge.Web_Quizz.Controllers
               {
                   return HttpNotFound();
               }
-              return View(difficulty);
+              return View(difficulty.MapToDifficultyViewModel());
           }
         
           // POST: Difficulties/Delete/5
@@ -110,7 +111,7 @@ namespace _FilRouge.Web_Quizz.Controllers
               Difficulty difficulty = db.Difficulties.Find(id);
               db.Difficulties.Remove(difficulty);
               db.SaveChanges();
-              return RedirectToAction("Index");
+              return RedirectToAction("GetAllDifficulty");
           }
         
           protected override void Dispose(bool disposing)

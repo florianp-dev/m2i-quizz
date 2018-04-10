@@ -2,6 +2,12 @@
 using System.Linq;
 using System.Net;
 using System.Web.Mvc;
+<<<<<<< Updated upstream:FilRouge.MVC/Controllers/MasterDifficultiesController.cs
+=======
+using ModelEntities.Entities;
+using Services;
+using ModelEntities.ModelViews;
+>>>>>>> Stashed changes:[FilRouge.Web]Quizz/Controllers/MasterDifficultiesController.cs
 
 namespace FilRouge.Web.Controllers
 {
@@ -28,13 +34,15 @@ namespace FilRouge.Web.Controllers
               {
                   return HttpNotFound();
               }
-              return View(masterDifficulty);
+              return View(masterDifficulty.MapToMasterDifficultyViewModel());
           }
         
           // GET: MasterDifficulties/Create
           public ActionResult Create()
           {
-              return View();
+            var ListPercentItems = _masterdifficultiesService.SetPercentDropDownList();
+            ViewBag.Percent = ListPercentItems;
+            return View();
           }
         
           // POST: MasterDifficulties/Create
@@ -42,16 +50,16 @@ namespace FilRouge.Web.Controllers
           // plus de détails, voir  https://go.microsoft.com/fwlink/?LinkId=317598.
           [HttpPost]
           [ValidateAntiForgeryToken]
-          public ActionResult Create([Bind(Include = "MasterDifficultyID,Wording,DifficultyType")] MasterDifficulty masterDifficulty)
+          public ActionResult Create([Bind(Include = "MasterDifficultyID,Wording,PercentID")] MasterDifficulty masterDifficulty)
           {
               if (ModelState.IsValid)
               {
                   db.MasterDifficulties.Add(masterDifficulty);
                   db.SaveChanges();
-                  return RedirectToAction("Index");
+                  return RedirectToAction("GetAllMasterDifficulty");
               }
         
-              return View(masterDifficulty);
+              return View(masterDifficulty.MapToMasterDifficultyViewModel());
           }
         
           // GET: MasterDifficulties/Edit/5
@@ -66,7 +74,9 @@ namespace FilRouge.Web.Controllers
               {
                   return HttpNotFound();
               }
-              return View(masterDifficulty);
+            var ListPercentItems = _masterdifficultiesService.SetPercentDropDownList();
+            ViewBag.Percent = ListPercentItems;
+            return View(masterDifficulty.MapToMasterDifficultyViewModel());
           }
         
           // POST: MasterDifficulties/Edit/5
@@ -74,15 +84,15 @@ namespace FilRouge.Web.Controllers
           // plus de détails, voir  https://go.microsoft.com/fwlink/?LinkId=317598.
           [HttpPost]
           [ValidateAntiForgeryToken]
-          public ActionResult Edit([Bind(Include = "MasterDifficultyID,Wording,DifficultyType")] MasterDifficulty masterDifficulty)
+          public ActionResult Edit([Bind(Include = "MasterDifficultyID,Wording,PercentID")] MasterDifficulty masterDifficulty)
           {
               if (ModelState.IsValid)
               {
                   db.Entry(masterDifficulty).State = EntityState.Modified;
                   db.SaveChanges();
-                  return RedirectToAction("Index");
+                  return RedirectToAction("GetAllMasterDifficulty");
               }
-              return View(masterDifficulty);
+              return View(masterDifficulty.MapToMasterDifficultyViewModel());
           }
         
           // GET: MasterDifficulties/Delete/5
@@ -97,7 +107,7 @@ namespace FilRouge.Web.Controllers
               {
                   return HttpNotFound();
               }
-              return View(masterDifficulty);
+              return View(masterDifficulty.MapToMasterDifficultyViewModel());
           }
         
           // POST: MasterDifficulties/Delete/5
@@ -108,7 +118,7 @@ namespace FilRouge.Web.Controllers
               MasterDifficulty masterDifficulty = db.MasterDifficulties.Find(id);
               db.MasterDifficulties.Remove(masterDifficulty);
               db.SaveChanges();
-              return RedirectToAction("Index");
+              return RedirectToAction("GetAllMasterDifficulty");
           }
         
           protected override void Dispose(bool disposing)

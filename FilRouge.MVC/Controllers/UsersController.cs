@@ -3,17 +3,24 @@ using System.Linq;
 using System.Net;
 using System.Web.Mvc;
 using ModelEntities.Entities;
+using ModelEntities.ModelViews;
+using Services;
 
 namespace FilRouge.Web.Controllers
 {
     public class UsersController : Controller
     {
         private DataBaseContext db = new DataBaseContext();
-
+        private readonly UserService _userService = new UserService();
         // GET: Users
         public ActionResult Index()
         {
+<<<<<<< Updated upstream:FilRouge.MVC/Controllers/UsersController.cs
             return View(db.QuizzUsers.ToList());
+=======
+            var user = _userService.GetAllUsers();
+            return View("Index", user);
+>>>>>>> Stashed changes:[FilRouge.Web]Quizz/Controllers/UsersController.cs
         }
 
         // GET: Users/Details/5
@@ -28,7 +35,7 @@ namespace FilRouge.Web.Controllers
             {
                 return HttpNotFound();
             }
-            return View(user);
+            return View(user.MapToUserViewModel());
         }
 
         // GET: Users/Create
@@ -51,7 +58,7 @@ namespace FilRouge.Web.Controllers
                 return RedirectToAction("Index");
             }
 
-            return View(user);
+            return View(user.MapToUserViewModel());
         }
 
         // GET: Users/Edit/5
@@ -66,7 +73,7 @@ namespace FilRouge.Web.Controllers
             {
                 return HttpNotFound();
             }
-            return View(user);
+            return View(user.MapToUserViewModel());
         }
 
         // POST: Users/Edit/5
@@ -82,7 +89,7 @@ namespace FilRouge.Web.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(user);
+            return View(user.MapToUserViewModel());
         }
 
         // GET: Users/Delete/5
@@ -97,7 +104,7 @@ namespace FilRouge.Web.Controllers
             {
                 return HttpNotFound();
             }
-            return View(user);
+            return View(user.MapToUserViewModel());
         }
 
         // POST: Users/Delete/5

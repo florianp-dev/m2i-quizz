@@ -39,6 +39,27 @@ namespace ModelEntities.ModelViews
             };
             return masterdifficultyViewModel;
         }
+        public static UserViewModel MapToUserViewModel(this User user)
+        {
+            var userViewModel = new UserViewModel();
+
+            if (user == null)
+            {
+                return userViewModel;
+            }
+            userViewModel = new UserViewModel()
+            {
+                UserID = user.UserID,
+                FirstName = user.FirstName,
+                LastName = user.LastName, 
+                Tel = user.Tel,
+                EmailAddress = user.EmailAddress,
+                Password = user.Password,
+                Society = user.Society,
+                IsAdmin = user.IsAdmin
+            };
+            return userViewModel;
+        }
 
     }
 }
