@@ -7,13 +7,13 @@ namespace ModelEntities.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-    public sealed partial class màjDifficultiesQuizz : IMigrationMetadata
+    public sealed partial class initial : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(màjDifficultiesQuizz));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(initial));
         
         string IMigrationMetadata.Id
         {
-            get { return "201804190744223_màjDifficultiesQuizz"; }
+            get { return "201804191024245_initial"; }
         }
         
         string IMigrationMetadata.Source

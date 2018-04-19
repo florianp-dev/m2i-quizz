@@ -127,9 +127,9 @@
     <Compile Include="Entities\Result.cs" />
     <Compile Include="Entities\Techno.cs" />
     <Compile Include="Entities\User.cs" />
-    <Compile Include="Migrations\201804190744223_màjDifficultiesQuizz.cs" />
-    <Compile Include="Migrations\201804190744223_màjDifficultiesQuizz.Designer.cs">
-      <DependentUpon>201804190744223_màjDifficultiesQuizz.cs</DependentUpon>
+    <Compile Include="Migrations\201804191024245_initial.cs" />
+    <Compile Include="Migrations\201804191024245_initial.Designer.cs">
+      <DependentUpon>201804191024245_initial.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="ModelViews\AccountViewModels.cs" />
@@ -153,8 +153,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201804190744223_màjDifficultiesQuizz.resx">
-      <DependentUpon>201804190744223_màjDifficultiesQuizz.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201804191024245_initial.resx">
+      <DependentUpon>201804191024245_initial.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
