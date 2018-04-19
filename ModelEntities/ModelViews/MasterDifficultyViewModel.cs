@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace ModelEntities.ModelViews
 {
@@ -19,6 +14,5 @@ namespace ModelEntities.ModelViews
         [Required]
         [Display(Name = "Id Pourcentage : ")]
         public string PercentID { get; set; }
-
     }
 }
