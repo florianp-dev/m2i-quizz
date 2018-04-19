@@ -15,7 +15,7 @@ namespace Services
          /// Fournit tous les Quizz
          /// </summary>
          /// <returns>Une liste des quizz présents dans la base</returns>
-        public static List<Quizz> GetAllQuizzes()
+        public List<Quizz> GetAllQuizzes()
         {
             return _db.Quizzes.ToList();
         }
@@ -25,7 +25,7 @@ namespace Services
         /// </summary>
         /// <param name="id">ID du quizz à récupérer</param>
         /// <returns>Retourn le Quizz spécifié</returns>
-        public static Quizz GetQuizById(int id)
+        public Quizz GetQuizById(int id)
         {
             Quizz rQuizz = new Quizz();
             using (_db)

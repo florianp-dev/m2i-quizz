@@ -1,17 +1,24 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ModelEntities.ModelViews
 {
-    class QuizzViewModel
+    public class QuizzViewModel
     {
-        
         [Display(Name = "ID Quizz : ")]
         public int QuizzID { get; set; }
+
+        [Required]
+        [Display(Name = "Technologie : ")]
+        public int TechnoID;
+
+        [Required]
+        [Display(Name = "Difficulté : ")]
+        public int DifficultyID;
+
+        [Required]
+        [Display(Name = "Nombre de questions : ")]
+        public int NbQuestions;
 
         [Required]
         [Display(Name = "Prénom Candidat : ")]

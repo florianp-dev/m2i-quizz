@@ -1,0 +1,63 @@
+﻿@model IEnumerable<ModelEntities.ModelViews.QuizzViewModel>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.QuizzID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CandidateFirstname)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CandidateLastname)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TechnoID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DifficultyID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NbQuestions)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.QuizzID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CandidateFirstname)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CandidateLastname)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TechnoID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DifficultyID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NbQuestions)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.QuizzID }) |
+            @Html.ActionLink("Details", "Details", new { id = item.QuizzID }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.QuizzID })
+        </td>
+    </tr>
+    }
+
+</table>
