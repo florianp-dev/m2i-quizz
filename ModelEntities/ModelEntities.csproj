@@ -127,21 +127,9 @@
     <Compile Include="Entities\Result.cs" />
     <Compile Include="Entities\Techno.cs" />
     <Compile Include="Entities\User.cs" />
-    <Compile Include="Migrations\201804031340374_initial.cs" />
-    <Compile Include="Migrations\201804031340374_initial.Designer.cs">
-      <DependentUpon>201804031340374_initial.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201804031227210_v12.cs" />
-    <Compile Include="Migrations\201804031227210_v12.Designer.cs">
-      <DependentUpon>201804031227210_v12.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201804101235098_AddUserSupport.cs" />
-    <Compile Include="Migrations\201804101235098_AddUserSupport.Designer.cs">
-      <DependentUpon>201804101235098_AddUserSupport.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201804160911275_migration6.cs" />
-    <Compile Include="Migrations\201804160911275_migration6.Designer.cs">
-      <DependentUpon>201804160911275_migration6.cs</DependentUpon>
+    <Compile Include="Migrations\201804190744223_màjDifficultiesQuizz.cs" />
+    <Compile Include="Migrations\201804190744223_màjDifficultiesQuizz.Designer.cs">
+      <DependentUpon>201804190744223_màjDifficultiesQuizz.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="ModelViews\AccountViewModels.cs" />
@@ -165,17 +153,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201804031340374_initial.resx">
-      <DependentUpon>201804031340374_initial.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201804031227210_v12.resx">
-      <DependentUpon>201804031227210_v12.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201804101235098_AddUserSupport.resx">
-      <DependentUpon>201804101235098_AddUserSupport.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201804160911275_migration6.resx">
-      <DependentUpon>201804160911275_migration6.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201804190744223_màjDifficultiesQuizz.resx">
+      <DependentUpon>201804190744223_màjDifficultiesQuizz.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
