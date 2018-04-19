@@ -13,7 +13,7 @@ namespace _FilRouge.Web_Quizz.Controllers
     {
         private readonly DifficultiesService _difficultiesService = new DifficultiesService();
         // GET: Difficulties
-        public ActionResult GetAllDifficulty()
+        public ActionResult Index()
         {
             var difficulty = _difficultiesService.GetAllDifficulty();
             return View("Index", difficulty);

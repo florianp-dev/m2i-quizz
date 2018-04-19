@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Services;
+using ModelEntities.ModelViews;
 
 namespace FilRouge.Web.Controllers
 {
@@ -25,6 +27,20 @@ namespace FilRouge.Web.Controllers
             ViewBag.Message = "Your contact page.";
 
             return View();
+        }
+        public ActionResult MenuTechno()
+        {
+
+            return RedirectToAction("Index","Technoes");
+        }
+
+        public ActionResult MenuQuestion()
+        {
+            return RedirectToAction("Index", "Questions");
+        }
+        public ActionResult MenuDifficult()
+        {
+            return RedirectToAction("Index", "Difficulties");
         }
     }
 }

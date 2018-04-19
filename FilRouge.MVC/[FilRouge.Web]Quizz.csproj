@@ -189,16 +189,35 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AnswersController.cs" />
     <Compile Include="Controllers\DifficultiesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\MasterDifficultiesController.cs" />
     <Compile Include="Controllers\PercentsController.cs" />
+    <Compile Include="Controllers\QuestionsController.cs" />
     <Compile Include="Controllers\TechnoesController.cs" />
     <Compile Include="Controllers\UsersController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201804160750415_migration1.cs" />
+    <Compile Include="Migrations\201804160750415_migration1.Designer.cs">
+      <DependentUpon>201804160750415_migration1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201804160859339_migration2.cs" />
+    <Compile Include="Migrations\201804160859339_migration2.Designer.cs">
+      <DependentUpon>201804160859339_migration2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201804160901348_migration.cs" />
+    <Compile Include="Migrations\201804160901348_migration.Designer.cs">
+      <DependentUpon>201804160901348_migration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201804160911051_migration3.cs" />
+    <Compile Include="Migrations\201804160911051_migration3.Designer.cs">
+      <DependentUpon>201804160911051_migration3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
@@ -322,6 +341,16 @@
     <Content Include="Views\Users\Details.cshtml" />
     <Content Include="Views\Users\Edit.cshtml" />
     <Content Include="Views\Users\Index.cshtml" />
+    <Content Include="Views\Questions\Create.cshtml" />
+    <Content Include="Views\Questions\Delete.cshtml" />
+    <Content Include="Views\Questions\Details.cshtml" />
+    <Content Include="Views\Questions\Edit.cshtml" />
+    <Content Include="Views\Questions\Index.cshtml" />
+    <Content Include="Views\Answers\Create.cshtml" />
+    <Content Include="Views\Answers\Delete.cshtml" />
+    <Content Include="Views\Answers\Details.cshtml" />
+    <Content Include="Views\Answers\Edit.cshtml" />
+    <Content Include="Views\Answers\Index.cshtml" />
     <Content Include="Scripts\umd\popper.min.js.map" />
     <Content Include="Scripts\umd\popper.js.map" />
     <Content Include="Scripts\umd\popper-utils.min.js.map" />
@@ -351,10 +380,24 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <TypeScriptCompile Include="Scripts\index.d.ts" />
+    <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
   </ItemGroup>
   <ItemGroup>
-    <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
+    <EmbeddedResource Include="Migrations\201804160750415_migration1.resx">
+      <DependentUpon>201804160750415_migration1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201804160859339_migration2.resx">
+      <DependentUpon>201804160859339_migration2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201804160901348_migration.resx">
+      <DependentUpon>201804160901348_migration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201804160911051_migration3.resx">
+      <DependentUpon>201804160911051_migration3.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <TypeScriptCompile Include="Scripts\index.d.ts" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
@@ -371,7 +414,7 @@
     <VisualStudio>
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
         <WebProjectProperties>
-          <UseIIS>True</UseIIS>
+          <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>61859</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>

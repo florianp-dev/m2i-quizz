@@ -13,7 +13,7 @@ namespace FilRouge.Web.Controllers
     {
         private readonly MasterDifficultiesService _masterdifficultiesService = new MasterDifficultiesService();
         // GET: Difficulties
-        public ActionResult GetAllMasterDifficulty()
+        public ActionResult Index()
         {
             var masterdifficulty = _masterdifficultiesService.GetAllMasterDifficulty();
             return View("Index", masterdifficulty);
