@@ -15,7 +15,7 @@ namespace ModelEntities.Migrations
 
         protected override void Seed(DataBaseContext context)
         {
-            context.Roles.AddOrUpdate(new IdentityRole("Admin"));
+            /*context.Roles.AddOrUpdate(new IdentityRole("Admin"));
             context.Roles.AddOrUpdate(new IdentityRole("Recruitment Agent"));
 
             var admin = new User
@@ -45,7 +45,7 @@ namespace ModelEntities.Migrations
             // mot de passe "agent"
             userManager.Create(rAgent, "agent");
             userManager.SetLockoutEnabled(rAgent.Id, false);
-            userManager.AddToRole(admin.Id, "Recruitment Agent");
+            userManager.AddToRole(admin.Id, "Recruitment Agent");*/
         }
     }
 }
