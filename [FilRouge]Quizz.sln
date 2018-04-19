@@ -14,6 +14,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "[FilRouge.Web]Quizz", "FilR
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "[FilRouge.API]Quizz", "[FilRouge.API]Quizz\[FilRouge.API]Quizz.csproj", "{C19C0FEF-B842-4959-B0A0-92F677DB819C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTestProject", "UnitTestProject\UnitTestProject.csproj", "{7B199ACA-970F-4825-884A-D7FC9F18E870}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -54,6 +56,14 @@ Global
 		{C19C0FEF-B842-4959-B0A0-92F677DB819C}.Release|Any CPU.Build.0 = Release|Any CPU
 		{C19C0FEF-B842-4959-B0A0-92F677DB819C}.Release|x64.ActiveCfg = Release|Any CPU
 		{C19C0FEF-B842-4959-B0A0-92F677DB819C}.Release|x64.Build.0 = Release|Any CPU
+		{7B199ACA-970F-4825-884A-D7FC9F18E870}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7B199ACA-970F-4825-884A-D7FC9F18E870}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7B199ACA-970F-4825-884A-D7FC9F18E870}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{7B199ACA-970F-4825-884A-D7FC9F18E870}.Debug|x64.Build.0 = Debug|Any CPU
+		{7B199ACA-970F-4825-884A-D7FC9F18E870}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7B199ACA-970F-4825-884A-D7FC9F18E870}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7B199ACA-970F-4825-884A-D7FC9F18E870}.Release|x64.ActiveCfg = Release|Any CPU
+		{7B199ACA-970F-4825-884A-D7FC9F18E870}.Release|x64.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
