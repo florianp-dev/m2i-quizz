@@ -1,5 +1,9 @@
 # m2i-quizz
 
+Currently in status :
+
+[![Build status](https://ci.appveyor.com/api/projects/status/d0cadxwxvg0n5t2o/branch/master?svg=true)](https://ci.appveyor.com/project/florianp-dev/m2i-quizz/branch/master)
+
 Format of the commit message
 ----------------------------
 ```
