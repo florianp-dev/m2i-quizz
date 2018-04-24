@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Web.Security;
 using ModelEntities.Entities;
 
 namespace ModelEntities.ModelViews
@@ -24,6 +20,7 @@ namespace ModelEntities.ModelViews
             };
             return difficultyViewModel;
         }
+
         public static MasterDifficultyViewModel MapToMasterDifficultyViewModel(this MasterDifficulty masterdifficulty)
         {
             var masterdifficultyViewModel = new MasterDifficultyViewModel();
@@ -39,6 +36,7 @@ namespace ModelEntities.ModelViews
             };
             return masterdifficultyViewModel;
         }
+
         public static UserViewModel MapToUserViewModel(this User user)
         {
             var userViewModel = new UserViewModel();
@@ -47,6 +45,9 @@ namespace ModelEntities.ModelViews
             {
                 return userViewModel;
             }
+            
+            var isAdmin = Roles.IsUserInRole(user.UserName, "Admin");
+
             userViewModel = new UserViewModel()
             {
                 UserID = user.Id,
@@ -54,7 +55,8 @@ namespace ModelEntities.ModelViews
                 LastName = user.LastName, 
                 Tel = user.PhoneNumber,
                 EmailAddress = user.Email,
-                Society = user.Society
+                Society = user.Society,
+                IsAdmin = isAdmin
             };
             return userViewModel;
         }
@@ -98,6 +100,5 @@ namespace ModelEntities.ModelViews
             };
             return answerViewModel;
         }
-
     }
 }

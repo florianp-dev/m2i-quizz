@@ -17,8 +17,8 @@ namespace FilRouge.Web.Controllers
         // GET: Users
         public ActionResult Index()
         {
-            var user = _userService.GetAllUsers();
-            return View("Index", user);
+            var users = _userService.GetAllUsers();
+            return View("Index", users);
         }
 
         [Authorize(Roles = "Admin")]
