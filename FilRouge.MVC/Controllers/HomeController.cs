@@ -41,7 +41,7 @@ namespace FilRouge.Web.Controllers
         {
             return RedirectToAction("Index", "Difficulties");
         }
-        public ActionResult MenuDifficult()
+        public ActionResult MenuQuizzes()
         {
             return RedirectToAction("Index", "Quizzes");
         }
