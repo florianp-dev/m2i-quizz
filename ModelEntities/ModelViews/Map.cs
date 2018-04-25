@@ -1,4 +1,5 @@
-﻿using System.Web.Security;
+﻿using System.Linq;
+using System.Web.Security;
 using ModelEntities.Entities;
 
 namespace ModelEntities.ModelViews
@@ -8,13 +9,24 @@ namespace ModelEntities.ModelViews
         public static QuizzViewModel MapToQuizzViewModel(this Quizz quizz)
         {
             if (quizz == null)
-                return new QuizzViewModel(); 
+                return new QuizzViewModel();
+
+            var technoName = "";
+            var difficultyName = "";
+
+            using (var db = new DataBaseContext())
+            {
+                technoName = db.Technos.Find(quizz.TechnoID).Wording;
+                difficultyName = db.MasterDifficulties.Find(quizz.MasterDifficultyID).Wording;
+            }
 
             return new QuizzViewModel
             {
                 QuizzID = quizz.QuizzID,
                 CandidateFirstname = quizz.CandidateFirstname,
                 CandidateLastname = quizz.CandidateLastname,
+                TechnoName = technoName,
+                DifficultyName = difficultyName,
                 TechnoID = quizz.TechnoID,
                 DifficultyID = quizz.MasterDifficultyID,
                 NbQuestions = quizz.NbQuestions
