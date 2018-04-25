@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using ModelEntities.Entities;
+using ModelEntities.ModelViews;
 
 
 namespace Services
@@ -15,9 +16,9 @@ namespace Services
          /// Fournit tous les Quizz
          /// </summary>
          /// <returns>Une liste des quizz présents dans la base</returns>
-        public List<Quizz> GetAllQuizzes()
+        public List<QuizzViewModel> GetAllQuizzes()
         {
-            return _db.Quizzes.ToList();
+            return _db.Quizzes.ToList().Select(u => u.MapToQuizzViewModel()).ToList();
         }
 
         /// <summary>

@@ -5,6 +5,22 @@ namespace ModelEntities.ModelViews
 {
      public static class Map
     {
+        public static QuizzViewModel MapToQuizzViewModel(this Quizz quizz)
+        {
+            if (quizz == null)
+                return new QuizzViewModel(); 
+
+            return new QuizzViewModel
+            {
+                QuizzID = quizz.QuizzID,
+                CandidateFirstname = quizz.CandidateFirstname,
+                CandidateLastname = quizz.CandidateLastname,
+                TechnoID = quizz.TechnoID,
+                DifficultyID = quizz.MasterDifficultyID,
+                NbQuestions = quizz.NbQuestions
+            };
+        }
+
         public static DifficultyViewModel MapToDifficultyViewModel(this Difficulty difficulty)
         {
             var difficultyViewModel = new DifficultyViewModel();
