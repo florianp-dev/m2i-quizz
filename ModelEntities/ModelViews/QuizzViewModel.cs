@@ -5,20 +5,25 @@ namespace ModelEntities.ModelViews
 {
     public class QuizzViewModel
     {
+        [Required]
         [Display(Name = "ID Quizz : ")]
         public int QuizzID { get; set; }
 
         [Required]
-        [Display(Name = "Technologie : ")]
         public int TechnoID;
 
         [Required]
-        [Display(Name = "Difficulté : ")]
         public int DifficultyID;
+
+        [Display(Name = "Difficulté : ")]
+        public string DifficultyName { get; set; }
+        
+        [Display(Name = "Technologie : ")]
+        public string TechnoName { get; set; }
 
         [Required]
         [Display(Name = "Nombre de questions : ")]
-        public int NbQuestions;
+        public int NbQuestions { get; set; }
 
         [Required]
         [Display(Name = "Prénom Candidat : ")]

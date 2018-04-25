@@ -18,10 +18,10 @@
             @Html.DisplayNameFor(model => model.CandidateLastname)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.TechnoID)
+            @Html.DisplayNameFor(model => model.TechnoName)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.DifficultyID)
+            @Html.DisplayNameFor(model => model.DifficultyName)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.NbQuestions)
@@ -41,18 +41,17 @@
             @Html.DisplayFor(modelItem => item.CandidateLastname)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.TechnoID)
+            @Html.DisplayFor(modelItem => item.TechnoName)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.DifficultyID)
+            @Html.DisplayFor(modelItem => item.DifficultyName)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.NbQuestions)
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id = item.QuizzID }) |
-            @Html.ActionLink("Details", "Details", new { id = item.QuizzID }) |
-            @Html.ActionLink("Delete", "Delete", new { id = item.QuizzID })
+            @Html.ActionLink("Details", "Details", new { id = item.QuizzID })
         </td>
     </tr>
     }

@@ -26,10 +26,5 @@ namespace FilRouge.Web.Controllers
         {
             throw new System.NotImplementedException();
         }
-
-        public ActionResult Delete(int id)
-        {
-            throw new System.NotImplementedException();
-        }
     }
 }
