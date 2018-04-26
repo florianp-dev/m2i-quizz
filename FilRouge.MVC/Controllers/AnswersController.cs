@@ -101,14 +101,22 @@ namespace FilRouge.Web.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Answer answer = db.Answers.Find(id);
+            Question question = db.Questions.Find(id);
+            List<Answer> answer = db.Answers.Select(m => m).Where(m=>m.QuestionID == id).ToList();
             if (answer == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.CommentID = new SelectList(db.QComments, "QCommentID", "Content", answer.CommentID);
-            ViewBag.QuestionID = new SelectList(db.Questions, "QuestionID", "Wording", answer.QuestionID);
-            return View(answer);
+            //ViewBag.CommentID = new SelectList(db.QComments, "QCommentID", "Content", answer.CommentID);
+            ViewBag.Question = question;
+            ViewBag.Answer = answer;
+            var ListAnswerView = new List<InsertAnswer_AnswerCommentViewModel>()
+            { new InsertAnswer_AnswerCommentViewModel() { QuestionID = id.Value, AnswerID = answer[0].AnswerID, CommentID=answer[0].CommentID, Content=answer[0].Content, IsCorrect= answer[0].IsCorrect,QCommentID=answer[0].LinkedComment.QCommentID,QContent=answer[0].LinkedComment.Content},
+            { new InsertAnswer_AnswerCommentViewModel() { QuestionID = id.Value,AnswerID = answer[1].AnswerID, CommentID=answer[1].CommentID, Content=answer[1].Content, IsCorrect= answer[1].IsCorrect,QCommentID=answer[1].LinkedComment.QCommentID,QContent=answer[1].LinkedComment.Content } },
+            { new InsertAnswer_AnswerCommentViewModel() { QuestionID = id.Value, AnswerID = answer[2].AnswerID, CommentID=answer[2].CommentID, Content=answer[2].Content, IsCorrect= answer[2].IsCorrect,QCommentID=answer[2].LinkedComment.QCommentID,QContent=answer[2].LinkedComment.Content } },
+            { new InsertAnswer_AnswerCommentViewModel() { QuestionID = id.Value, AnswerID = answer[3].AnswerID, CommentID=answer[3].CommentID, Content=answer[3].Content, IsCorrect= answer[3].IsCorrect,QCommentID=answer[3].LinkedComment.QCommentID,QContent=answer[3].LinkedComment.Content } }
+            };
+            return View(ListAnswerView);
         }
 
         // POST: Answers/Edit/5
@@ -116,16 +124,41 @@ namespace FilRouge.Web.Controllers
         // plus de détails, voir  https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "AnswerID,Content,IsCorrect,QuestionID,CommentID")] Answer answer)
+        public ActionResult Edit(List<InsertAnswer_AnswerCommentViewModel> answer)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(answer).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
-            ViewBag.CommentID = new SelectList(db.QComments, "QCommentID", "Content", answer.CommentID);
-            ViewBag.QuestionID = new SelectList(db.Questions, "QuestionID", "Wording", answer.QuestionID);
+                foreach (var answ in answer)
+                {
+                    Answer t = new Answer
+                    {
+                        AnswerID = answ.AnswerID,
+                        Content = answ.Content,
+                        IsCorrect = answ.IsCorrect,
+                        QuestionID = answ.QuestionID,
+                        CommentID = answ.CommentID
+                    };
+                    db.Entry(t).State = EntityState.Modified;
+                    db.SaveChanges();
+                    var answerComment = new AnswerComment
+                    {
+                        QCommentID = answ.QCommentID,
+                        Content = answ.QContent
+                    };
+                    db.Entry(answerComment).State = EntityState.Modified;
+                    db.SaveChanges();
+                }
+                //foreach (var answ in answer)
+                //{                
+                //    db.Entry(answ).State = EntityState.Modified;
+                //    db.SaveChanges();
+                //
+                //}
+                return RedirectToAction("Index", "Questions");
+            }         
+                //ViewBag.CommentID = new SelectList(db.QComments, "QCommentID", "Content", answ.CommentID);
+                //ViewBag.QuestionID = new SelectList(db.Questions, "QuestionID", "Wording", answ.QuestionID);
+           
             return View(answer);
         }
 

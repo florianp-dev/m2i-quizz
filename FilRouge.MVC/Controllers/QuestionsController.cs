@@ -30,12 +30,14 @@ namespace FilRouge.Web.Controllers
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
+            }         
             Question question = db.Questions.Find(id);
+            List<Answer> answer = db.Answers.Select(m => m).Where(m =>m.QuestionID == id).ToList();
             if (question == null)
             {
                 return HttpNotFound();
             }
+            ViewBag.Answer = answer;
             return View(question.MapToQuestionsViewModel());
         }
 
@@ -84,13 +86,16 @@ namespace FilRouge.Web.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             Question question = db.Questions.Find(id);
+            List<Answer> answer = db.Answers.Select(m => m).Where(m => m.QuestionID == id).ToList();
             if (question == null)
             {
                 return HttpNotFound();
             }
+            ViewBag.Answer = answer;
             ViewBag.DifficultyID = new SelectList(db.Difficulties, "DifficultyID", "Wording", question.DifficultyID);
             ViewBag.QTypeID = new SelectList(db.QTypes, "QTypeID", "Wording", question.QTypeID);
             ViewBag.TechnoID = new SelectList(db.Technos, "TechnoID", "Wording", question.TechnoID);
+            ViewBag.Question = question;
             return View(question);
         }
 
@@ -105,10 +110,9 @@ namespace FilRouge.Web.Controllers
             {
                 db.Entry(question).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Edit", "Answers", new { id = question.QuestionID });
             }
             ViewBag.DifficultyID = new SelectList(db.Difficulties, "DifficultyID", "Wording", question.DifficultyID);
-            ViewBag.QTypeID = new SelectList(db.QTypes, "QTypeID", "Wording", question.QTypeID);
             ViewBag.TechnoID = new SelectList(db.Technos, "TechnoID", "Wording", question.TechnoID);
             return View(question);
         }

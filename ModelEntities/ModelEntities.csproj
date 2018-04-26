@@ -153,6 +153,7 @@
     <Compile Include="ModelViews\MasterDifficultyViewModel.cs" />
     <Compile Include="ModelViews\PercentViewModel.cs" />
     <Compile Include="ModelViews\QuestionTypeViewModel.cs" />
+    <Compile Include="ModelViews\QuestionAnswerViewModel.cs" />
     <Compile Include="ModelViews\QuestionViewModel.cs" />
     <Compile Include="ModelViews\QuizzViewModel.cs" />
     <Compile Include="ModelViews\ResultViewModel.cs" />

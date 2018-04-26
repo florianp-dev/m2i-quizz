@@ -18,5 +18,18 @@ namespace ModelEntities.ModelViews
         public string Content { get; set; }
         public bool IsCorrect { get; set; }
         public int QuestionID { get; set; }
+        public int CommentID { get; set; }
+
+        public void PopulateFromAnswer(Answer answer, AnswerComment answerComment)
+        {
+            AnswerID = answer.AnswerID;
+            Content = answer.Content;
+            IsCorrect = answer.IsCorrect;
+            CommentID = answer.CommentID;
+
+            QCommentID = answerComment.QCommentID;
+            QContent = answerComment.Content;
+
+        }
     }
 }
