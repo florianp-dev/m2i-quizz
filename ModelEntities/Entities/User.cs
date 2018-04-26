@@ -6,24 +6,16 @@
 /// </summary>
 
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
+using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace ModelEntities.Entities
 {
-    public class User
+    public class User : IdentityUser
     {
         #region Properties
-        [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int UserID { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
-        public string Tel { get; set; }
-        public string EmailAddress { get; set; }
-        public string Password { get; set; }
         public string Society { get; set; }
-        public bool IsAdmin { get; set; }
         #endregion
 
         #region Associations

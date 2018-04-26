@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ModelEntities.ModelViews
 {
-    class DifficultyViewModel
+    public class DifficultyViewModel
     {
         [Display(Name = "ID Difficulté : ")]
         public int DifficultyID { get; set; }
@@ -15,9 +15,5 @@ namespace ModelEntities.ModelViews
         [Required]
         [Display(Name = "Libellé : ")]
         public string Wording { get; set; }
-
-        [Required]
-        [Display(Name = "Pourcentage : ")]
-        public int Percentage { get; set; }
     }
 }

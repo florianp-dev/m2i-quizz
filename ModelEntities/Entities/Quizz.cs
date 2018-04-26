@@ -19,17 +19,16 @@ namespace ModelEntities.Entities
         public int QuizzID { get; set; }
         public string CandidateFirstname { get; set; }
         public string CandidateLastname { get; set; }
+        public int NbQuestions { get; set; }
         
         [ForeignKey("LinkedUser")]
-        public int UserID { get; set; }
+        public string UserID { get; set; }
         [ForeignKey("LinkedTechno")]
         public int TechnoID { get; set; }
         [ForeignKey("LinkedMasterDifficulty")]
         public int MasterDifficultyID { get; set; }
         [ForeignKey("LinkedResult")]
         public int ResultID { get; set; }
-        [ForeignKey("LinkedPercent")]
-        public int PercentID { get; set; }
 
         #endregion
 
@@ -39,7 +38,6 @@ namespace ModelEntities.Entities
         public virtual MasterDifficulty LinkedMasterDifficulty { get; set; }
         public virtual List<Question> LinkedQuestions { get; set; }
         public virtual Result LinkedResult { get; set; }
-        public virtual Percent LinkedPercent { get; set; }
         #endregion
     }
 }

@@ -19,15 +19,9 @@ namespace ModelEntities.Entities
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int DifficultyID { get; set; }
         public string Wording { get; set; }
-        
-        /// <summary>
-        /// Spécifie si la difficulté est "quizz" ou "question"
-        /// </summary>
-        public string DifficultyType { get; set; }
         #endregion
 
         #region Associations
-        public virtual List<Quizz> LinkedQuizz { get; set; }
         public virtual List<Question> LinkedQuestion { get; set; }
         #endregion
     }

@@ -1,0 +1,51 @@
+﻿@model IEnumerable<ModelEntities.ModelViews.AnswerViewModel>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.LinkedAnswerComment)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LinkedQuestion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Content)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IsCorrect)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.LinkedAnswerComment.Content)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LinkedQuestion.Wording)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Content)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IsCorrect)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.AnswerID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.AnswerID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.AnswerID })
+        </td>
+    </tr>
+}
+
+</table>

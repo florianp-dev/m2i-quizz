@@ -2,11 +2,8 @@
 /// Florian POUCHELET
 /// </remarks>
 
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using ModelEntities.Entities;
 
 namespace Services
@@ -32,6 +29,14 @@ namespace Services
         public static List<Techno> GetTechnos()
         {
             return db.Technos.ToList();
+        }
+
+        public static List<Question> GetQuestionByDifficulty(string diff)
+        {
+            return db.Questions
+                .Where(q => q.Wording == diff)
+                .Where(q => q.IsActive)
+                .ToList();
         }
     }
 }

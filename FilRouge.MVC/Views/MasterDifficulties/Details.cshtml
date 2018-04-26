@@ -1,0 +1,25 @@
+﻿@model ModelEntities.ModelViews.MasterDifficultyViewModel
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>MasterDifficulty</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Wording)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Wording)
+        </dd>ss
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.MasterDifficultyID }) |
+    @Html.ActionLink("Back to List", "GetAllMasterDifficulty")
+</p>

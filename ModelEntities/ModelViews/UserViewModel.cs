@@ -1,15 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace ModelEntities.ModelViews
 {
     public class UserViewModel
     {
-        public int UserID { get; set; }
+        public string UserID { get; set; }
 
         [Required]
         [Display(Name = "Prénom : ")]

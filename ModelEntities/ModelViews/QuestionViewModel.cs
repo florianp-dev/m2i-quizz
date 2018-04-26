@@ -4,10 +4,11 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ModelEntities.Entities;
 
 namespace ModelEntities.ModelViews
 {
-    class QuestionViewModel
+    public class QuestionViewModel
     {
         
         [Display(Name = "ID Question : ")]
@@ -20,5 +21,18 @@ namespace ModelEntities.ModelViews
         [Required]
         [Display(Name = "Actif : ")]
         public bool IsActive { get; set; }
+
+        [Required]
+        [Display(Name = "Type de Question : ")]
+        public virtual QuestionType LinkedQType { get; set; }
+
+        [Required]
+        [Display(Name = "Difficulté : ")]
+        public virtual Difficulty LinkedDifficulty { get; set; }
+
+        [Required]
+        [Display(Name = "Technologie : ")]
+        public virtual Techno LinkedTechno { get; set; }
+
     }
 }
