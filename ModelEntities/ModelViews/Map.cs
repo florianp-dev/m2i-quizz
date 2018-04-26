@@ -1,14 +1,38 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Linq;
+using System.Web.Security;
 using ModelEntities.Entities;
 
 namespace ModelEntities.ModelViews
 {
      public static class Map
     {
+        public static QuizzViewModel MapToQuizzViewModel(this Quizz quizz)
+        {
+            if (quizz == null)
+                return new QuizzViewModel();
+
+            var technoName = "";
+            var difficultyName = "";
+
+            using (var db = new DataBaseContext())
+            {
+                technoName = db.Technos.Find(quizz.TechnoID).Wording;
+                difficultyName = db.MasterDifficulties.Find(quizz.MasterDifficultyID).Wording;
+            }
+
+            return new QuizzViewModel
+            {
+                QuizzID = quizz.QuizzID,
+                CandidateFirstname = quizz.CandidateFirstname,
+                CandidateLastname = quizz.CandidateLastname,
+                TechnoName = technoName,
+                DifficultyName = difficultyName,
+                TechnoID = quizz.TechnoID,
+                DifficultyID = quizz.MasterDifficultyID,
+                NbQuestions = quizz.NbQuestions
+            };
+        }
+
         public static DifficultyViewModel MapToDifficultyViewModel(this Difficulty difficulty)
         {
             var difficultyViewModel = new DifficultyViewModel();
@@ -24,6 +48,7 @@ namespace ModelEntities.ModelViews
             };
             return difficultyViewModel;
         }
+
         public static MasterDifficultyViewModel MapToMasterDifficultyViewModel(this MasterDifficulty masterdifficulty)
         {
             var masterdifficultyViewModel = new MasterDifficultyViewModel();
@@ -39,6 +64,7 @@ namespace ModelEntities.ModelViews
             };
             return masterdifficultyViewModel;
         }
+
         public static UserViewModel MapToUserViewModel(this User user)
         {
             var userViewModel = new UserViewModel();
@@ -47,6 +73,9 @@ namespace ModelEntities.ModelViews
             {
                 return userViewModel;
             }
+            
+            var isAdmin = Roles.IsUserInRole(user.UserName, "Admin");
+
             userViewModel = new UserViewModel()
             {
                 UserID = user.Id,
@@ -54,7 +83,8 @@ namespace ModelEntities.ModelViews
                 LastName = user.LastName, 
                 Tel = user.PhoneNumber,
                 EmailAddress = user.Email,
-                Society = user.Society
+                Society = user.Society,
+                IsAdmin = isAdmin
             };
             return userViewModel;
         }
@@ -98,6 +128,5 @@ namespace ModelEntities.ModelViews
             };
             return answerViewModel;
         }
-
     }
 }

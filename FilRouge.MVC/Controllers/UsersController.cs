@@ -7,17 +7,21 @@ using Services;
 
 namespace FilRouge.Web.Controllers
 {
+    [Authorize]
     public class UsersController : Controller
     {
         private DataBaseContext db = new DataBaseContext();
         private readonly UserService _userService = new UserService();
+        
+        [Authorize(Roles = "Admin")]
         // GET: Users
         public ActionResult Index()
         {
-            var user = _userService.GetAllUsers();
-            return View("Index", user);
+            var users = _userService.GetAllUsers();
+            return View("Index", users);
         }
 
+        [Authorize(Roles = "Admin")]
         // GET: Users/Details/5
         public ActionResult Details(string id)
         {
@@ -33,6 +37,7 @@ namespace FilRouge.Web.Controllers
             return View(user.MapToUserViewModel());
         }
 
+        [Authorize(Roles = "Admin")]
         // GET: Users/Create
         public ActionResult Create()
         {
@@ -56,6 +61,7 @@ namespace FilRouge.Web.Controllers
             return View(user.MapToUserViewModel());
         }
 
+        [Authorize(Roles = "Admin")]
         // GET: Users/Edit/5
         public ActionResult Edit(string id)
         {
@@ -87,6 +93,7 @@ namespace FilRouge.Web.Controllers
             return View(user.MapToUserViewModel());
         }
 
+        [Authorize(Roles = "Admin")]
         // GET: Users/Delete/5
         public ActionResult Delete(string id)
         {

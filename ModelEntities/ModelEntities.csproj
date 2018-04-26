@@ -82,6 +82,7 @@
     <Reference Include="System.Net.Http.Formatting, Version=5.2.4.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.4\lib\net45\System.Net.Http.Formatting.dll</HintPath>
     </Reference>
+    <Reference Include="System.Web" />
     <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.4\lib\net45\System.Web.Helpers.dll</HintPath>
     </Reference>
@@ -127,21 +128,9 @@
     <Compile Include="Entities\Result.cs" />
     <Compile Include="Entities\Techno.cs" />
     <Compile Include="Entities\User.cs" />
-    <Compile Include="Migrations\201804031340374_initial.cs" />
-    <Compile Include="Migrations\201804031340374_initial.Designer.cs">
-      <DependentUpon>201804031340374_initial.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201804031227210_v12.cs" />
-    <Compile Include="Migrations\201804031227210_v12.Designer.cs">
-      <DependentUpon>201804031227210_v12.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201804101235098_AddUserSupport.cs" />
-    <Compile Include="Migrations\201804101235098_AddUserSupport.Designer.cs">
-      <DependentUpon>201804101235098_AddUserSupport.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201804160911275_migration6.cs" />
-    <Compile Include="Migrations\201804160911275_migration6.Designer.cs">
-      <DependentUpon>201804160911275_migration6.cs</DependentUpon>
+    <Compile Include="Migrations\201804191024245_initial.cs" />
+    <Compile Include="Migrations\201804191024245_initial.Designer.cs">
+      <DependentUpon>201804191024245_initial.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="ModelViews\AccountViewModels.cs" />
@@ -166,17 +155,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201804031340374_initial.resx">
-      <DependentUpon>201804031340374_initial.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201804031227210_v12.resx">
-      <DependentUpon>201804031227210_v12.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201804101235098_AddUserSupport.resx">
-      <DependentUpon>201804101235098_AddUserSupport.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201804160911275_migration6.resx">
-      <DependentUpon>201804160911275_migration6.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201804191024245_initial.resx">
+      <DependentUpon>201804191024245_initial.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -80,6 +80,7 @@
   <ItemGroup>
     <Compile Include="AnswersService.cs" />
     <Compile Include="DifficultiesService.cs" />
+    <Compile Include="IEnumerableExt.cs" />
     <Compile Include="MasterDifficultiesService.cs" />
     <Compile Include="QuestionService.cs" />
     <Compile Include="PercentService.cs" />

@@ -28,12 +28,11 @@ namespace FilRouge.Web.Controllers
 
             return View();
         }
+
         public ActionResult MenuTechno()
         {
-
             return RedirectToAction("Index","Technoes");
         }
-
         public ActionResult MenuQuestion()
         {
             return RedirectToAction("Index", "Questions");
@@ -41,6 +40,10 @@ namespace FilRouge.Web.Controllers
         public ActionResult MenuDifficult()
         {
             return RedirectToAction("Index", "Difficulties");
+        }
+        public ActionResult MenuQuizzes()
+        {
+            return RedirectToAction("Index", "Quizzes");
         }
     }
 }
