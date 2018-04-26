@@ -12,7 +12,7 @@ namespace FilRouge.Web.Controllers
     {
         public ActionResult Index()
         {
-            return View();
+            return RedirectToAction("Login","Account");
         }
 
         public ActionResult About()
@@ -44,6 +44,10 @@ namespace FilRouge.Web.Controllers
         public ActionResult MenuQuizzes()
         {
             return RedirectToAction("Index", "Quizzes");
+        }
+        public ActionResult MenuUser()
+        {
+            return RedirectToAction("Index", "Users");
         }
     }
 }
