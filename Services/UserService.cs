@@ -1,12 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using ModelEntities.Entities;
 using ModelEntities.ModelViews;
-using System.Web.Mvc;
-
 
 namespace Services
 {

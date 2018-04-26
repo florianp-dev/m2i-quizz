@@ -1,4 +1,5 @@
 ﻿using System.Web.Mvc;
+using ModelEntities.ModelViews;
 using Services;
 
 namespace FilRouge.Web.Controllers
@@ -12,9 +13,9 @@ namespace FilRouge.Web.Controllers
             return View(_service.GetAllQuizzes());
         }
 
-        public ActionResult Create()
+        public ActionResult Create(QuizzViewModel qvm)
         {
-            throw new System.NotImplementedException();
+            return View();
         }
 
         public ActionResult Edit(int id)
