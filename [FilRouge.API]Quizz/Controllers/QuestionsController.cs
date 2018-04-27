@@ -1,11 +1,8 @@
 ﻿using ModelEntities.ModelViews;
 using Services;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Net.Http;
 using System.Web.Http;
+using ModelEntities.Entities;
 
 namespace FilRouge.API.Controllers
 {
@@ -13,31 +10,20 @@ namespace FilRouge.API.Controllers
     {
         private static readonly QuestionService _service = new QuestionService();
 
-        // GET: api/Questions
-        public List<QuestionViewModel> Get()
+        // GET: api/Questions/?id
+        [HttpGet]
+        public IHttpActionResult Get(int? id)
         {
-            return _service.GetAllQuestions();
-        }
-
-        // GET: api/Questions/5
-        public string Get(int id)
-        {
-            return "value";
-        }
-
-        // POST: api/Questions
-        public void Post([FromBody]string value)
-        {
-        }
-
-        // PUT: api/Questions/5
-        public void Put(int id, [FromBody]string value)
-        {
+            if (id == null)
+                return Ok(_service.GetAllQuestions());
+            return Ok(_service.GetById((int) id));
         }
 
         // DELETE: api/Questions/5
+        [HttpDelete]
         public void Delete(int id)
         {
+            _service.Remove(id);
         }
     }
 }
