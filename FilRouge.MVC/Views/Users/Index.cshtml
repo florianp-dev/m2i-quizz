@@ -9,6 +9,16 @@
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
+
+<p>
+    @{
+        foreach (var role in ViewBag.currentRole)
+        {
+            @role;
+        }
+    }
+</p>
+
 <table class="table">
     <tr>
         <th>
