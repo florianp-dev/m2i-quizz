@@ -1,6 +1,9 @@
-﻿using System.Data.Entity;
+﻿using System;
+using System.Data.Entity;
+using System.Data.Entity.Validation;
 using System.Net;
 using System.Web.Mvc;
+using System.Web.Security;
 using ModelEntities.Entities;
 using ModelEntities.ModelViews;
 using Services;
@@ -12,16 +15,15 @@ namespace FilRouge.Web.Controllers
     {
         private DataBaseContext db = new DataBaseContext();
         private readonly UserService _userService = new UserService();
-        
-        [Authorize(Roles = "Admin")]
+
         // GET: Users
         public ActionResult Index()
         {
             var users = _userService.GetAllUsers();
+            ViewBag.currentRole = Roles.GetRolesForUser();
             return View("Index", users);
         }
 
-        [Authorize(Roles = "Admin")]
         // GET: Users/Details/5
         public ActionResult Details(string id)
         {
@@ -36,8 +38,7 @@ namespace FilRouge.Web.Controllers
             }
             return View(user.MapToUserViewModel());
         }
-
-        [Authorize(Roles = "Admin")]
+        
         // GET: Users/Create
         public ActionResult Create()
         {
@@ -49,19 +50,34 @@ namespace FilRouge.Web.Controllers
         // plus de détails, voir  https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "UserID,FirstName,LastName,Tel,EmailAddress,Password,Society,IsAdmin")] User user)
+        public ActionResult Create([Bind(Include = "FirstName,LastName,Tel,EmailAddress,Password,Society,IsAdmin")] User user)
         {
             if (ModelState.IsValid)
             {
-                db.Users.Add(user);
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                try
+                {
+                    user.UserName = "lool";
+                    db.Users.Add(user);
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
+                catch (DbEntityValidationException e)
+                {
+                    foreach (var eve in e.EntityValidationErrors)
+                    {
+                        Console.WriteLine("Entity of type \"{0}\" in state \"{1}\" has the following validation errors:",
+                            eve.Entry.Entity.GetType().Name, eve.Entry.State);
+                        foreach (var ve in eve.ValidationErrors)
+                        {
+                            Console.WriteLine("- Property: \"{0}\", Error: \"{1}\"",
+                                ve.PropertyName, ve.ErrorMessage);
+                        }
+                    }
+                }
             }
-
             return View(user.MapToUserViewModel());
         }
-
-        [Authorize(Roles = "Admin")]
+        
         // GET: Users/Edit/5
         public ActionResult Edit(string id)
         {
@@ -92,8 +108,7 @@ namespace FilRouge.Web.Controllers
             }
             return View(user.MapToUserViewModel());
         }
-
-        [Authorize(Roles = "Admin")]
+        
         // GET: Users/Delete/5
         public ActionResult Delete(string id)
         {

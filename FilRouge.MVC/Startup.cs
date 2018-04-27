@@ -35,7 +35,7 @@ namespace FilRouge.Web
                 //Here we create a Admin super user who will maintain the website                  
 
                 var user = new User();
-                user.UserName = "admin";
+                user.UserName = "admin@gmail.com";
                 user.Email = "admin@gmail.com";
 
                 string userPWD = "Admin#1";
@@ -59,7 +59,7 @@ namespace FilRouge.Web
                 //Here we create a Agent user
 
                 var user = new User();
-                user.UserName = "agent";
+                user.UserName = "agent@gmail.com";
                 user.Email = "agent@gmail.com";
 
                 string userPWD = "Agent#1";
