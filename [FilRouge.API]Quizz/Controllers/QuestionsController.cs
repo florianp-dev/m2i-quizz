@@ -1,8 +1,5 @@
-﻿using ModelEntities.ModelViews;
-using Services;
-using System.Collections.Generic;
+﻿using Services;
 using System.Web.Http;
-using ModelEntities.Entities;
 
 namespace FilRouge.API.Controllers
 {
