@@ -106,10 +106,27 @@ namespace ModelEntities.ModelViews
                 LinkedQType = question.LinkedQType,
                 LinkedDifficulty = question.LinkedDifficulty,
                 LinkedTechno = question.LinkedTechno
-
             };
             return questionViewModel;
         }
+
+        public static QuestionApiViewModel MapToQuestionsApiViewModel(this Question question)
+        {
+            var questionViewModel = new QuestionApiViewModel();
+
+            if (question == null)
+            {
+                return questionViewModel;
+            }
+            questionViewModel = new QuestionApiViewModel()
+            {
+                QuestionID = question.QuestionID,
+                Libelle = question.Wording,
+                IsActive = question.IsActive
+            };
+            return questionViewModel;
+        }
+
 
         public static AnswerViewModel MapToAnswerViewModel(this Answer answer)
         {

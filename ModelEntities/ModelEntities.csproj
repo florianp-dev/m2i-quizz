@@ -139,6 +139,7 @@
     <Compile Include="ModelViews\InsertAnswer_AnswerCommentViewModel.cs" />
     <Compile Include="ModelViews\Map.cs" />
     <Compile Include="ModelViews\PercentViewModel.cs" />
+    <Compile Include="ModelViews\QuestionApiViewModel.cs" />
     <Compile Include="ModelViews\QuestionTypeViewModel.cs" />
     <Compile Include="ModelViews\QuestionAnswerViewModel.cs" />
     <Compile Include="ModelViews\QuestionViewModel.cs" />

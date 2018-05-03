@@ -1,5 +1,6 @@
 ﻿using Services;
 using System.Web.Http;
+using ModelEntities.ModelViews;
 
 namespace FilRouge.API.Controllers
 {
@@ -9,11 +10,15 @@ namespace FilRouge.API.Controllers
 
         // GET: api/Questions/?id
         [HttpGet]
-        public IHttpActionResult Get(int? id)
+        public IHttpActionResult Get(int? id = null)
         {
             if (id == null)
-                return Ok(_service.GetAllQuestions());
-            return Ok(_service.GetById((int) id));
+            {
+                var qApi = _service.GetAllQuestionsApi();
+                return Ok(qApi);
+            }
+                
+            return Ok(_service.GetById((int) id).MapToQuestionsApiViewModel());
         }
 
         // DELETE: api/Questions/5
