@@ -1,17 +1,24 @@
-using ModelEntities.Entities;
-using System.Data.Entity.Migrations;
 namespace ModelEntities.Migrations
 {
-    internal sealed class Configuration : DbMigrationsConfiguration<DataBaseContext>
+    using System;
+    using System.Data.Entity;
+    using System.Data.Entity.Migrations;
+    using System.Linq;
+
+    internal sealed class Configuration : DbMigrationsConfiguration<ModelEntities.Entities.DataBaseContext>
     {
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
+            AutomaticMigrationDataLossAllowed = true;
         }
 
-        protected override void Seed(DataBaseContext context)
+        protected override void Seed(ModelEntities.Entities.DataBaseContext context)
         {
-            
+            //  This method will be called after migrating to the latest version.
+
+            //  You can use the DbSet<T>.AddOrUpdate() helper extension method 
+            //  to avoid creating duplicate seed data.
         }
     }
 }

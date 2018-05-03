@@ -45,30 +45,32 @@ namespace Services
         /// <param name="fName">Prénom du candidat</param>
         /// <param name="lName">Nom du candidat</param>
         /// <returns>Un quizz créé aléatoirement avec le nombre de questions selon le niveau</returns>
-        public Quizz CreateQuiz(Techno tech, MasterDifficulty diff, int nbQuestions, string fName, string lName)
+        public Quizz CreateQuiz(Techno tech, Difficulty diff, int nbQuestions, string fName, string lName)
         {
             Quizz quizz = new Quizz
             {
                 CandidateFirstname = fName,
                 CandidateLastname = lName,
                 LinkedTechno = tech,
-                LinkedMasterDifficulty = diff,
-                NbQuestions = nbQuestions
+                LinkedDifficulty = diff,
+                NbQuestions = nbQuestions,
+                LinkedQuestions = new List<Question>()
             };
 
             var begginerQuestions = ReferencesService.GetQuestionByDifficulty("Débutant")
-                .Where(q => q.LinkedTechno == tech)
+                .Where(q => q.LinkedTechno.Wording == tech.Wording)
                 .ToList();
             var interQuestions = ReferencesService.GetQuestionByDifficulty("Intermédiaire")
-                .Where(q => q.LinkedTechno == tech)
+                .Where(q => q.LinkedTechno.Wording == tech.Wording)
                 .ToList();
             var expertQuestions = ReferencesService.GetQuestionByDifficulty("Expert")
-                .Where(q => q.LinkedTechno == tech)
+                .Where(q => q.LinkedTechno.Wording == tech.Wording)
                 .ToList();
 
-            quizz.LinkedQuestions.AddRange(GenerateRandomQuestionsList(begginerQuestions, (int)diff.LinkedPercent.Beginner));
-            quizz.LinkedQuestions.AddRange(GenerateRandomQuestionsList(interQuestions, (int)diff.LinkedPercent.Intermediate));
-            quizz.LinkedQuestions.AddRange(GenerateRandomQuestionsList(expertQuestions, (int)diff.LinkedPercent.Expert));
+
+            quizz.LinkedQuestions.AddRange(GenerateRandomQuestionsList(begginerQuestions, (int)diff.Percent.Beginner * nbQuestions /100));
+            quizz.LinkedQuestions.AddRange(GenerateRandomQuestionsList(interQuestions, (int)diff.Percent.Intermediate * nbQuestions/100));
+            quizz.LinkedQuestions.AddRange(GenerateRandomQuestionsList(expertQuestions, (int)diff.Percent.Expert*nbQuestions/100));
 
             return quizz;
         }

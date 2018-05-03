@@ -79,9 +79,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AnswersService.cs" />
-    <Compile Include="DifficultiesService.cs" />
+    <Compile Include="sDifficultiesService.cs" />
     <Compile Include="IEnumerableExt.cs" />
-    <Compile Include="MasterDifficultiesService.cs" />
+    <Compile Include="DifficultiesService.cs" />
     <Compile Include="QuestionService.cs" />
     <Compile Include="PercentService.cs" />
     <Compile Include="QuizzService.cs" />

@@ -116,10 +116,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Entities\DataBaseContext.cs" />
-    <Compile Include="Entities\Difficulty.cs" />
     <Compile Include="Entities\AnswerComment.cs" />
+    <Compile Include="Entities\Difficulty.cs" />
     <Compile Include="Entities\IdentityConfig.cs" />
-    <Compile Include="Entities\MasterDifficulty.cs" />
     <Compile Include="Entities\Percent.cs" />
     <Compile Include="Entities\Question.cs" />
     <Compile Include="Entities\QuestionType.cs" />
@@ -128,9 +127,9 @@
     <Compile Include="Entities\Result.cs" />
     <Compile Include="Entities\Techno.cs" />
     <Compile Include="Entities\User.cs" />
-    <Compile Include="Migrations\201804191024245_initial.cs" />
-    <Compile Include="Migrations\201804191024245_initial.Designer.cs">
-      <DependentUpon>201804191024245_initial.cs</DependentUpon>
+    <Compile Include="Migrations\201804271419066_FirstCreation.cs" />
+    <Compile Include="Migrations\201804271419066_FirstCreation.Designer.cs">
+      <DependentUpon>201804271419066_FirstCreation.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="ModelViews\AccountViewModels.cs" />
@@ -139,7 +138,6 @@
     <Compile Include="ModelViews\DifficultyViewModel.cs" />
     <Compile Include="ModelViews\InsertAnswer_AnswerCommentViewModel.cs" />
     <Compile Include="ModelViews\Map.cs" />
-    <Compile Include="ModelViews\MasterDifficultyViewModel.cs" />
     <Compile Include="ModelViews\PercentViewModel.cs" />
     <Compile Include="ModelViews\QuestionTypeViewModel.cs" />
     <Compile Include="ModelViews\QuestionAnswerViewModel.cs" />
@@ -155,8 +153,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201804191024245_initial.resx">
-      <DependentUpon>201804191024245_initial.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201804271419066_FirstCreation.resx">
+      <DependentUpon>201804271419066_FirstCreation.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

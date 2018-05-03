@@ -6,116 +6,112 @@ using ModelEntities.Entities;
 using Services;
 using ModelEntities.ModelViews;
 
-namespace FilRouge.Web.Controllers
-{
 
-    public class MasterDifficultiesController : Controller
+namespace _FilRouge.Web_Quizz.Controllers
+{
+    public class DifficultiessController : Controller
     {
-        private readonly MasterDifficultiesService _masterdifficultiesService = new MasterDifficultiesService();
+        private readonly DifficultiesService _difficultiesService = new DifficultiesService();
         // GET: Difficulties
         public ActionResult Index()
         {
-            var masterdifficulty = _masterdifficultiesService.GetAllMasterDifficulty();
-            return View("Index", masterdifficulty);
+            var difficulty = _difficultiesService.GetAllDifficulty();
+            return View("Index", difficulty);
         }
         private DataBaseContext db = new DataBaseContext();
-        //GET: MasterDifficulties/Details/5
+        // GET: Difficulties/Details/5
         public ActionResult Details(int? id)
           {
               if (id == null)
               {
                   return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
               }
-              MasterDifficulty masterDifficulty = db.MasterDifficulties.Find(id);
-              if (masterDifficulty == null)
+              Difficulty difficulty = db.Difficulties.Find(id);
+              if (difficulty == null)
               {
                   return HttpNotFound();
               }
-              return View(masterDifficulty.MapToMasterDifficultyViewModel());
+              return View(difficulty.MapToDifficultyViewModel());
           }
         
-          // GET: MasterDifficulties/Create
+          // GET: Difficulties/Create
           public ActionResult Create()
           {
-            var ListPercentItems = _masterdifficultiesService.SetPercentDropDownList();
-            ViewBag.Percent = ListPercentItems;
-            return View();
+              return View();
           }
         
-          // POST: MasterDifficulties/Create
+          // POST: Difficulties/Create
           // Afin de déjouer les attaques par sur-validation, activez les propriétés spécifiques que vous voulez lier. Pour 
           // plus de détails, voir  https://go.microsoft.com/fwlink/?LinkId=317598.
           [HttpPost]
           [ValidateAntiForgeryToken]
-          public ActionResult Create([Bind(Include = "MasterDifficultyID,Wording,PercentID")] MasterDifficulty masterDifficulty)
+          public ActionResult Create([Bind(Include = "DifficultyID,Wording,DifficultyType")] Difficulty difficulty)
           {
               if (ModelState.IsValid)
               {
-                  db.MasterDifficulties.Add(masterDifficulty);
+                  db.Difficulties.Add(difficulty);
                   db.SaveChanges();
-                  return RedirectToAction("GetAllMasterDifficulty");
+                  return RedirectToAction("Index");
               }
         
-              return View(masterDifficulty.MapToMasterDifficultyViewModel());
+              return View(difficulty.MapToDifficultyViewModel());
           }
         
-          // GET: MasterDifficulties/Edit/5
+          // GET: Difficulties/Edit/5
           public ActionResult Edit(int? id)
           {
               if (id == null)
               {
                   return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
               }
-              MasterDifficulty masterDifficulty = db.MasterDifficulties.Find(id);
-              if (masterDifficulty == null)
+              Difficulty difficulty = db.Difficulties.Find(id);
+              if (difficulty == null)
               {
                   return HttpNotFound();
               }
-            var ListPercentItems = _masterdifficultiesService.SetPercentDropDownList();
-            ViewBag.Percent = ListPercentItems;
-            return View(masterDifficulty.MapToMasterDifficultyViewModel());
+              return View(difficulty.MapToDifficultyViewModel());
           }
         
-          // POST: MasterDifficulties/Edit/5
+          // POST: Difficulties/Edit/5
           // Afin de déjouer les attaques par sur-validation, activez les propriétés spécifiques que vous voulez lier. Pour 
           // plus de détails, voir  https://go.microsoft.com/fwlink/?LinkId=317598.
           [HttpPost]
           [ValidateAntiForgeryToken]
-          public ActionResult Edit([Bind(Include = "MasterDifficultyID,Wording,PercentID")] MasterDifficulty masterDifficulty)
+          public ActionResult Edit([Bind(Include = "DifficultyID,Wording")] Difficulty difficulty)
           {
               if (ModelState.IsValid)
               {
-                  db.Entry(masterDifficulty).State = EntityState.Modified;
+                  db.Entry(difficulty).State = EntityState.Modified;
                   db.SaveChanges();
-                  return RedirectToAction("GetAllMasterDifficulty");
+                  return RedirectToAction("Index");
               }
-              return View(masterDifficulty.MapToMasterDifficultyViewModel());
+              return View(difficulty.MapToDifficultyViewModel());
           }
         
-          // GET: MasterDifficulties/Delete/5
+          // GET: Difficulties/Delete/5
           public ActionResult Delete(int? id)
           {
               if (id == null)
               {
                   return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
               }
-              MasterDifficulty masterDifficulty = db.MasterDifficulties.Find(id);
-              if (masterDifficulty == null)
+              Difficulty difficulty = db.Difficulties.Find(id);
+              if (difficulty == null)
               {
                   return HttpNotFound();
               }
-              return View(masterDifficulty.MapToMasterDifficultyViewModel());
+              return View(difficulty.MapToDifficultyViewModel());
           }
         
-          // POST: MasterDifficulties/Delete/5
+          // POST: Difficulties/Delete/5
           [HttpPost, ActionName("Delete")]
           [ValidateAntiForgeryToken]
           public ActionResult DeleteConfirmed(int id)
           {
-              MasterDifficulty masterDifficulty = db.MasterDifficulties.Find(id);
-              db.MasterDifficulties.Remove(masterDifficulty);
+              Difficulty difficulty = db.Difficulties.Find(id);
+              db.Difficulties.Remove(difficulty);
               db.SaveChanges();
-              return RedirectToAction("GetAllMasterDifficulty");
+              return RedirectToAction("Index");
           }
         
           protected override void Dispose(bool disposing)

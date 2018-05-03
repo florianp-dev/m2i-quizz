@@ -1,10 +1,10 @@
-﻿@model IEnumerable<ModelEntities.ModelViews.MasterDifficultyViewModel>
+﻿@model IEnumerable<ModelEntities.ModelViews.DifficultyViewModel>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Difficulty";
 }
 
-<h2>Difficultés du Quizz</h2>
+<h2>Difficultés</h2>
 
 <p>
     @Html.ActionLink("Create New", "Create")
@@ -24,9 +24,9 @@
                 @Html.DisplayFor(modelItem => item.Wording)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.MasterDifficultyID }) |
-                @Html.ActionLink("Details", "Details", new { id = item.MasterDifficultyID }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.MasterDifficultyID })
+                @Html.ActionLink("Edit", "Edit", new { id = item.DifficultyID }) |
+                @Html.ActionLink("Details", "Details", new { id = item.DifficultyID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.DifficultyID })
             </td>
         </tr>
     }

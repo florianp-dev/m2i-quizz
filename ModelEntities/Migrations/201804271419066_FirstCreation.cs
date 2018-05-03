@@ -3,7 +3,7 @@ namespace ModelEntities.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class initial : DbMigration
+    public partial class FirstCreation : DbMigration
     {
         public override void Up()
         {
@@ -57,17 +57,11 @@ namespace ModelEntities.Migrations
                     {
                         DifficultyID = c.Int(nullable: false, identity: true),
                         Wording = c.String(),
+                        PercentID = c.Int(nullable: false),
                     })
-                .PrimaryKey(t => t.DifficultyID);
-            
-            CreateTable(
-                "dbo.QuestionTypes",
-                c => new
-                    {
-                        QTypeID = c.Int(nullable: false, identity: true),
-                        Wording = c.String(),
-                    })
-                .PrimaryKey(t => t.QTypeID);
+                .PrimaryKey(t => t.DifficultyID)
+                .ForeignKey("dbo.Percents", t => t.PercentID, cascadeDelete: true)
+                .Index(t => t.PercentID);
             
             CreateTable(
                 "dbo.Quizzs",
@@ -79,41 +73,18 @@ namespace ModelEntities.Migrations
                         NbQuestions = c.Int(nullable: false),
                         UserID = c.String(maxLength: 128),
                         TechnoID = c.Int(nullable: false),
-                        MasterDifficultyID = c.Int(nullable: false),
-                        ResultID = c.Int(nullable: false),
+                        DifficultyID = c.Int(nullable: false),
+                        ResultID = c.Int(),
                     })
                 .PrimaryKey(t => t.QuizzID)
-                .ForeignKey("dbo.MasterDifficulties", t => t.MasterDifficultyID, cascadeDelete: true)
-                .ForeignKey("dbo.Results", t => t.ResultID, cascadeDelete: true)
+                .ForeignKey("dbo.Difficulties", t => t.DifficultyID, cascadeDelete: true)
+                .ForeignKey("dbo.Results", t => t.ResultID)
                 .ForeignKey("dbo.Technoes", t => t.TechnoID, cascadeDelete: true)
                 .ForeignKey("dbo.AspNetUsers", t => t.UserID)
                 .Index(t => t.UserID)
                 .Index(t => t.TechnoID)
-                .Index(t => t.MasterDifficultyID)
+                .Index(t => t.DifficultyID)
                 .Index(t => t.ResultID);
-            
-            CreateTable(
-                "dbo.MasterDifficulties",
-                c => new
-                    {
-                        MasterDifficultyID = c.Int(nullable: false, identity: true),
-                        Wording = c.String(),
-                        PercentID = c.Int(nullable: false),
-                    })
-                .PrimaryKey(t => t.MasterDifficultyID)
-                .ForeignKey("dbo.Percents", t => t.PercentID, cascadeDelete: true)
-                .Index(t => t.PercentID);
-            
-            CreateTable(
-                "dbo.Percents",
-                c => new
-                    {
-                        PercentID = c.Int(nullable: false, identity: true),
-                        Beginner = c.Decimal(nullable: false, precision: 18, scale: 2),
-                        Intermediate = c.Decimal(nullable: false, precision: 18, scale: 2),
-                        Expert = c.Decimal(nullable: false, precision: 18, scale: 2),
-                    })
-                .PrimaryKey(t => t.PercentID);
             
             CreateTable(
                 "dbo.Results",
@@ -194,6 +165,26 @@ namespace ModelEntities.Migrations
                 .Index(t => t.RoleId);
             
             CreateTable(
+                "dbo.Percents",
+                c => new
+                    {
+                        PercentID = c.Int(nullable: false, identity: true),
+                        Beginner = c.Decimal(nullable: false, precision: 18, scale: 2),
+                        Intermediate = c.Decimal(nullable: false, precision: 18, scale: 2),
+                        Expert = c.Decimal(nullable: false, precision: 18, scale: 2),
+                    })
+                .PrimaryKey(t => t.PercentID);
+            
+            CreateTable(
+                "dbo.QuestionTypes",
+                c => new
+                    {
+                        QTypeID = c.Int(nullable: false, identity: true),
+                        Wording = c.String(),
+                    })
+                .PrimaryKey(t => t.QTypeID);
+            
+            CreateTable(
                 "dbo.AspNetRoles",
                 c => new
                     {
@@ -236,6 +227,9 @@ namespace ModelEntities.Migrations
             DropForeignKey("dbo.AspNetUserRoles", "RoleId", "dbo.AspNetRoles");
             DropForeignKey("dbo.Answers", "QuestionID", "dbo.Questions");
             DropForeignKey("dbo.Questions", "TechnoID", "dbo.Technoes");
+            DropForeignKey("dbo.Questions", "QTypeID", "dbo.QuestionTypes");
+            DropForeignKey("dbo.Questions", "DifficultyID", "dbo.Difficulties");
+            DropForeignKey("dbo.Difficulties", "PercentID", "dbo.Percents");
             DropForeignKey("dbo.Quizzs", "UserID", "dbo.AspNetUsers");
             DropForeignKey("dbo.AspNetUserRoles", "UserId", "dbo.AspNetUsers");
             DropForeignKey("dbo.AspNetUserLogins", "UserId", "dbo.AspNetUsers");
@@ -246,10 +240,7 @@ namespace ModelEntities.Migrations
             DropForeignKey("dbo.ResultAnswers", "Result_ResultID", "dbo.Results");
             DropForeignKey("dbo.QuizzQuestions", "Question_QuestionID", "dbo.Questions");
             DropForeignKey("dbo.QuizzQuestions", "Quizz_QuizzID", "dbo.Quizzs");
-            DropForeignKey("dbo.Quizzs", "MasterDifficultyID", "dbo.MasterDifficulties");
-            DropForeignKey("dbo.MasterDifficulties", "PercentID", "dbo.Percents");
-            DropForeignKey("dbo.Questions", "QTypeID", "dbo.QuestionTypes");
-            DropForeignKey("dbo.Questions", "DifficultyID", "dbo.Difficulties");
+            DropForeignKey("dbo.Quizzs", "DifficultyID", "dbo.Difficulties");
             DropForeignKey("dbo.Answers", "CommentID", "dbo.AnswerComments");
             DropIndex("dbo.ResultAnswers", new[] { "Answer_AnswerID" });
             DropIndex("dbo.ResultAnswers", new[] { "Result_ResultID" });
@@ -261,11 +252,11 @@ namespace ModelEntities.Migrations
             DropIndex("dbo.AspNetUserLogins", new[] { "UserId" });
             DropIndex("dbo.AspNetUserClaims", new[] { "UserId" });
             DropIndex("dbo.AspNetUsers", "UserNameIndex");
-            DropIndex("dbo.MasterDifficulties", new[] { "PercentID" });
             DropIndex("dbo.Quizzs", new[] { "ResultID" });
-            DropIndex("dbo.Quizzs", new[] { "MasterDifficultyID" });
+            DropIndex("dbo.Quizzs", new[] { "DifficultyID" });
             DropIndex("dbo.Quizzs", new[] { "TechnoID" });
             DropIndex("dbo.Quizzs", new[] { "UserID" });
+            DropIndex("dbo.Difficulties", new[] { "PercentID" });
             DropIndex("dbo.Questions", new[] { "DifficultyID" });
             DropIndex("dbo.Questions", new[] { "QTypeID" });
             DropIndex("dbo.Questions", new[] { "TechnoID" });
@@ -274,16 +265,15 @@ namespace ModelEntities.Migrations
             DropTable("dbo.ResultAnswers");
             DropTable("dbo.QuizzQuestions");
             DropTable("dbo.AspNetRoles");
+            DropTable("dbo.QuestionTypes");
+            DropTable("dbo.Percents");
             DropTable("dbo.AspNetUserRoles");
             DropTable("dbo.AspNetUserLogins");
             DropTable("dbo.AspNetUserClaims");
             DropTable("dbo.AspNetUsers");
             DropTable("dbo.Technoes");
             DropTable("dbo.Results");
-            DropTable("dbo.Percents");
-            DropTable("dbo.MasterDifficulties");
             DropTable("dbo.Quizzs");
-            DropTable("dbo.QuestionTypes");
             DropTable("dbo.Difficulties");
             DropTable("dbo.Questions");
             DropTable("dbo.AnswerComments");

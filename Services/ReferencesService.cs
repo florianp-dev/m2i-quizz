@@ -34,7 +34,7 @@ namespace Services
         public static List<Question> GetQuestionByDifficulty(string diff)
         {
             return db.Questions
-                .Where(q => q.Wording == diff)
+                .Where(q => q.LinkedDifficulty.Wording == diff)
                 .Where(q => q.IsActive)
                 .ToList();
         }

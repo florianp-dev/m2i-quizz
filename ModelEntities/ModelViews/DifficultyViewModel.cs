@@ -15,5 +15,9 @@ namespace ModelEntities.ModelViews
         [Required]
         [Display(Name = "Libellé : ")]
         public string Wording { get; set; }
+
+        [Required]
+        [Display(Name = "Id Pourcentage : ")]
+        public int PercentID { get; set; }
     }
 }

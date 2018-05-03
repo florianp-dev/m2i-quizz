@@ -190,10 +190,10 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AnswersController.cs" />
-    <Compile Include="Controllers\DifficultiesController.cs" />
+    <Compile Include="Controllers\DifficultiessController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
-    <Compile Include="Controllers\MasterDifficultiesController.cs" />
+    <Compile Include="Controllers\DifficultiesController.cs" />
     <Compile Include="Controllers\PercentsController.cs" />
     <Compile Include="Controllers\QuestionsController.cs" />
     <Compile Include="Controllers\QuizzesController.cs" />
@@ -298,16 +298,16 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Difficultiess\Create.cshtml" />
+    <Content Include="Views\Difficultiess\Delete.cshtml" />
+    <Content Include="Views\Difficultiess\Details.cshtml" />
+    <Content Include="Views\Difficultiess\Edit.cshtml" />
+    <Content Include="Views\Difficultiess\Index.cshtml" />
     <Content Include="Views\Difficulties\Create.cshtml" />
     <Content Include="Views\Difficulties\Delete.cshtml" />
     <Content Include="Views\Difficulties\Details.cshtml" />
     <Content Include="Views\Difficulties\Edit.cshtml" />
     <Content Include="Views\Difficulties\Index.cshtml" />
-    <Content Include="Views\MasterDifficulties\Create.cshtml" />
-    <Content Include="Views\MasterDifficulties\Delete.cshtml" />
-    <Content Include="Views\MasterDifficulties\Details.cshtml" />
-    <Content Include="Views\MasterDifficulties\Edit.cshtml" />
-    <Content Include="Views\MasterDifficulties\Index.cshtml" />
     <Content Include="Views\Percents\Create.cshtml" />
     <Content Include="Views\Percents\Delete.cshtml" />
     <Content Include="Views\Percents\Details.cshtml" />
@@ -344,6 +344,7 @@
     <Content Include="Scripts\popper-utils.js.map" />
     <Content Include="Views\Quizzes\Index.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Account\Register.cshtml" />
     <Content Include="Views\Quizzes\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>

@@ -6,7 +6,7 @@ namespace FilRouge.Web.Controllers
     {
         public ActionResult Index()
         {
-            return RedirectToAction("Login","Account");
+            return View();
         }
 
         public ActionResult About()

@@ -10,9 +10,9 @@
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
-        <h4>Difficulty</h4>
+        <h4>MasterDifficulty</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         @Html.HiddenFor(model => model.DifficultyID)
@@ -23,6 +23,10 @@
                 @Html.EditorFor(model => model.Wording, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.Wording, "", new { @class = "text-danger" })
             </div>
+            <div class="col-md-10">
+          @Html.DropDownListFor(model => model.PercentID, (List<SelectListItem>)ViewBag.Percent, "Pourcentage")
+          @Html.ValidationMessageFor(model => model.PercentID, "", new { @class = "text-danger" })
+      </div>
         </div>
 
 
@@ -35,7 +39,7 @@
 }
 
 <div>
-    @Html.ActionLink("Retour", "GetAllDifficulty")
+    @Html.ActionLink("Back to List", "Index")
 </div>
 
 @section Scripts {

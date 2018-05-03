@@ -17,7 +17,7 @@ namespace ModelEntities.ModelViews
             using (var db = new DataBaseContext())
             {
                 technoName = db.Technos.Find(quizz.TechnoID).Wording;
-                difficultyName = db.MasterDifficulties.Find(quizz.MasterDifficultyID).Wording;
+                difficultyName = db.Difficulties.Find(quizz.DifficultyID).Wording;
             }
 
             return new QuizzViewModel
@@ -28,12 +28,12 @@ namespace ModelEntities.ModelViews
                 TechnoName = technoName,
                 DifficultyName = difficultyName,
                 TechnoID = quizz.TechnoID,
-                DifficultyID = quizz.MasterDifficultyID,
+                DifficultyID = quizz.DifficultyID,
                 NbQuestions = quizz.NbQuestions
             };
         }
 
-        public static DifficultyViewModel MapToDifficultyViewModel(this Difficulty difficulty)
+        public static DifficultyViewModel MapTomDifficultyViewModel(this Difficulty difficulty)
         {
             var difficultyViewModel = new DifficultyViewModel();
 
@@ -49,20 +49,21 @@ namespace ModelEntities.ModelViews
             return difficultyViewModel;
         }
 
-        public static MasterDifficultyViewModel MapToMasterDifficultyViewModel(this MasterDifficulty masterdifficulty)
+        public static DifficultyViewModel MapToDifficultyViewModel(this Difficulty difficulty)
         {
-            var masterdifficultyViewModel = new MasterDifficultyViewModel();
-
-            if (masterdifficulty == null)
+            var difficultyViewModel = new DifficultyViewModel();
+        
+            if (difficulty == null)
             {
-                return masterdifficultyViewModel;
+                return difficultyViewModel;
             }
-            masterdifficultyViewModel = new MasterDifficultyViewModel()
+            difficultyViewModel = new DifficultyViewModel()
             {
-                MasterDifficultyID = masterdifficulty.MasterDifficultyID,
-                Wording = masterdifficulty.Wording,
+                DifficultyID = difficulty.DifficultyID,
+                Wording = difficulty.Wording,
+                PercentID = difficulty.Percent.PercentID,
             };
-            return masterdifficultyViewModel;
+            return difficultyViewModel;
         }
 
         public static UserViewModel MapToUserViewModel(this User user)

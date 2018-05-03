@@ -25,17 +25,17 @@ namespace ModelEntities.Entities
         public string UserID { get; set; }
         [ForeignKey("LinkedTechno")]
         public int TechnoID { get; set; }
-        [ForeignKey("LinkedMasterDifficulty")]
-        public int MasterDifficultyID { get; set; }
+        [ForeignKey("LinkedDifficulty")]
+        public int DifficultyID { get; set; }
         [ForeignKey("LinkedResult")]
-        public int ResultID { get; set; }
+        public int? ResultID { get; set; }
 
         #endregion
 
         #region Associations
         public virtual User LinkedUser { get; set; }
         public virtual Techno LinkedTechno { get; set; }
-        public virtual MasterDifficulty LinkedMasterDifficulty { get; set; }
+        public virtual Difficulty LinkedDifficulty { get; set; }
         public virtual List<Question> LinkedQuestions { get; set; }
         public virtual Result LinkedResult { get; set; }
         #endregion

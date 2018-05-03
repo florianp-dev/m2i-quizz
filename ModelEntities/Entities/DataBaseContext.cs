@@ -20,7 +20,6 @@ namespace ModelEntities.Entities
         public DbSet<Quizz> Quizzes { get; set; }
         public DbSet<Result> Results { get; set; }
         public DbSet<Techno> Technos { get; set; }
-        public DbSet<MasterDifficulty> MasterDifficulties { get; set; }
         public DbSet<Percent> Percents { get; set; }
 
 

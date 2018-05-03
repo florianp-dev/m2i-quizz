@@ -14,3 +14,4 @@ namespace ModelEntities.Entities
         public decimal Expert { get; set; }
     }
 }
+

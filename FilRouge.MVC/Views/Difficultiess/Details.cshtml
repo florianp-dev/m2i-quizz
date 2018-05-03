@@ -1,4 +1,4 @@
-﻿@model ModelEntities.ModelViews.MasterDifficultyViewModel
+﻿@model ModelEntities.ModelViews.DifficultyViewModel
 
 @{
     ViewBag.Title = "Details";
@@ -7,7 +7,7 @@
 <h2>Details</h2>
 
 <div>
-    <h4>MasterDifficulty</h4>
+    <h4>Difficulty</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
@@ -16,10 +16,12 @@
 
         <dd>
             @Html.DisplayFor(model => model.Wording)
-        </dd>ss
+        </dd>
+
+
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.MasterDifficultyID }) |
-    @Html.ActionLink("Back to List", "GetAllMasterDifficulty")
+    @Html.ActionLink("Edit", "Edit", new { id = Model.DifficultyID }) |
+    @Html.ActionLink("Back to List", "Index")
 </p>
