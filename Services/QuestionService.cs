@@ -23,5 +23,17 @@ namespace Services
             }
             return questionViewModel;
         }
+
+        public QuestionViewModel GetQuestionById(int id)
+        {
+            QuestionViewModel q = new QuestionViewModel();
+
+            using (var db = new DataBaseContext())
+            {
+                q = db.Questions.Find(id).MapToQuestionsViewModel();
+            }
+
+            return q;
+        }
     }
 }

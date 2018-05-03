@@ -14,15 +14,15 @@ namespace FilRouge.API.Controllers
         private static readonly QuestionService _service = new QuestionService();
 
         // GET: api/Questions
-        public List<QuestionViewModel> Get()
+        public IHttpActionResult Get()
         {
-            return _service.GetAllQuestions();
+            return Ok(_service.GetAllQuestions());
         }
 
         // GET: api/Questions/5
-        public string Get(int id)
+        public IHttpActionResult Get(int id)
         {
-            return "value";
+            return Ok(_service.GetQuestionById(id));
         }
 
         // POST: api/Questions
