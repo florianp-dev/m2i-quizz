@@ -23,5 +23,25 @@ namespace Services
             }
             return questionViewModel;
         }
+
+        public Question GetById(int id)
+        {
+            Question q;
+            using (var db = new DataBaseContext())
+            {
+                q = db.Questions.Find(id);
+            }
+            return q;
+        }
+
+        public void Remove(int id)
+        {
+            using (var db = new DataBaseContext())
+            {
+                var q = db.Questions.Find(id);
+                db.Questions.Remove(q);
+                db.SaveChanges();
+            }
+        }
     }
 }

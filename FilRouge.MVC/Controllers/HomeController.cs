@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
-using Services;
-using ModelEntities.ModelViews;
+﻿using System.Web.Mvc;
 
 namespace FilRouge.Web.Controllers
 {
@@ -45,7 +39,7 @@ namespace FilRouge.Web.Controllers
         {
             return RedirectToAction("Index", "Quizzes");
         }
-        public ActionResult MenuUser()
+        public ActionResult MenuUsers()
         {
             return RedirectToAction("Index", "Users");
         }

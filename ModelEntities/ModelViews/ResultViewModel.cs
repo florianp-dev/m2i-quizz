@@ -1,16 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using ModelEntities.Entities;
 
 namespace ModelEntities.ModelViews
 {
-    class ResultViewModel
+    public class ResultViewModel
     {
-        
+        [Required]
         [Display(Name = "Résultat : ")]
         public int ResultID { get; set; }
+
+        public List<Answer> Answers { get; set; }
     }
 }
