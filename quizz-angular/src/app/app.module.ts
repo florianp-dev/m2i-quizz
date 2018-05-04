@@ -8,6 +8,9 @@ import { QuestionsComponent } from './components/questions/questions.component';
 import {QuestionsService} from './Services/questions.service';
 import {HttpClientModule} from '@angular/common/http';
 
+import {ROUTES} from './app.routes';
+import {RouterModule} from '@angular/router';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -16,7 +19,8 @@ import {HttpClientModule} from '@angular/common/http';
   ],
   imports: [
     BrowserModule,
-    HttpClientModule
+    HttpClientModule,
+    RouterModule.forRoot(ROUTES)
   ],
   providers: [
     AnswersService,
