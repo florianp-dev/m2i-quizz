@@ -10,15 +10,29 @@ namespace Services
 {
     public class QuestionService
     {
-        public List<QuestionViewModel> GetAllQuestions()
+        public List<Question> GetAllQuestions()
         {
-            var questionViewModel = new List<QuestionViewModel>();
+            var questionViewModel = new List<Question>();
             using (var dbContext = new DataBaseContext())
             {
                 var questionEntities = dbContext.Questions.ToList();
                 foreach (var questionEntity in questionEntities)
                 {
-                    questionViewModel.Add(questionEntity.MapToQuestionsViewModel());
+                    questionViewModel.Add(questionEntity);
+                }
+            }
+            return questionViewModel;
+        }
+
+        public List<QuestionApiViewModel> GetAllQuestionsApi()
+        {
+            var questionViewModel = new List<QuestionApiViewModel>();
+            using (var dbContext = new DataBaseContext())
+            {
+                var questionEntities = dbContext.Questions.ToList();
+                foreach (var questionEntity in questionEntities)
+                {
+                    questionViewModel.Add(questionEntity.MapToQuestionsApiViewModel());
                 }
             }
             return questionViewModel;
@@ -26,7 +40,7 @@ namespace Services
 
         public Question GetById(int id)
         {
-            Question q;
+            Question q = new Question();
             using (var db = new DataBaseContext())
             {
                 q = db.Questions.Find(id);
