@@ -133,6 +133,7 @@
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="ModelViews\AccountViewModels.cs" />
+    <Compile Include="ModelViews\AnswerApiViewModel.cs" />
     <Compile Include="ModelViews\AnswerCommentViewModel.cs" />
     <Compile Include="ModelViews\AnswerViewModel.cs" />
     <Compile Include="ModelViews\DifficultyViewModel.cs" />

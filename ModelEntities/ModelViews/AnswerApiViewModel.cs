@@ -1,11 +1,11 @@
 ﻿using System.ComponentModel.DataAnnotations;
-using ModelEntities.Entities;
 
 namespace ModelEntities.ModelViews
 {
-    public class AnswerViewModel
+    public class AnswerApiViewModel
     {
-        
+        public int QuestionID { get; set; }
+
         [Display(Name = "ID Réponse : ")]
         public int AnswerID { get; set; }
 
@@ -16,12 +16,5 @@ namespace ModelEntities.ModelViews
         [Required]
         [Display(Name = "Est correcte: ")]
         public bool IsCorrect { get; set; }
-
-        [Required]
-        [Display(Name = "La question: ")]
-        public virtual Question LinkedQuestion { get; set; }
-
-        [Display(Name = "Commentaire: ")]
-        public virtual AnswerComment LinkedAnswerComment { get; set; }
     }
 }

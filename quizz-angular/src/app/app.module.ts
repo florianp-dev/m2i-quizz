@@ -10,12 +10,14 @@ import {HttpClientModule} from '@angular/common/http';
 
 import {ROUTES} from './app.routes';
 import {RouterModule} from '@angular/router';
+import { QuizzComponent } from './components/quizz/quizz.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     AnswerComponent,
-    QuestionsComponent
+    QuestionsComponent,
+    QuizzComponent
   ],
   imports: [
     BrowserModule,

@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using ModelEntities.Entities;
 using ModelEntities.ModelViews;
 
@@ -19,6 +16,20 @@ namespace Services
                 foreach (var answerEntity in answerEntities)
                 {
                     answerViewModel.Add(answerEntity.MapToAnswerViewModel());
+                }
+            }
+            return answerViewModel;
+        }
+
+        public List<AnswerApiViewModel> GetAnswerByQuestionId(int id)
+        {
+            var answerViewModel = new List<AnswerApiViewModel>();
+            using (var dbContext = new DataBaseContext())
+            {
+                var answerEntities = dbContext.Answers.Where(a => a.QuestionID == id).ToList();
+                foreach (var answerEntity in answerEntities)
+                {
+                    answerViewModel.Add(answerEntity.MapToAnswerApiViewModel());
                 }
             }
             return answerViewModel;

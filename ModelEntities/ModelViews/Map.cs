@@ -146,5 +146,23 @@ namespace ModelEntities.ModelViews
             };
             return answerViewModel;
         }
+
+        public static AnswerApiViewModel MapToAnswerApiViewModel(this Answer answer)
+        {
+            var answerViewModel = new AnswerApiViewModel();
+
+            if (answer == null)
+            {
+                return answerViewModel;
+            }
+            answerViewModel = new AnswerApiViewModel()
+            {
+                QuestionID = answer.LinkedQuestion.QuestionID,
+                AnswerID = answer.AnswerID,
+                Content = answer.Content,
+                IsCorrect = answer.IsCorrect
+            };
+            return answerViewModel;
+        }
     }
 }
