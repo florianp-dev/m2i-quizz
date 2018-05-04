@@ -18,7 +18,17 @@ namespace Services
          /// <returns>Une liste des quizz présents dans la base</returns>
         public List<QuizzViewModel> GetAllQuizzes()
         {
-            return _db.Quizzes.ToList().Select(u => u.MapToQuizzViewModel()).ToList();
+            var quizzViewModel = new List<QuizzViewModel>();
+            using (var dbContext = new DataBaseContext())
+            {
+                var quizzEntities = dbContext.Quizzes.ToList();
+                foreach (var quizzEntity in quizzEntities)
+                {
+                    quizzViewModel.Add(quizzEntity.MapToQuizzViewModel());
+                }
+            }
+            return quizzViewModel;
+           // return _db.Quizzes.ToList().Select(u => u.MapToQuizzViewModel()).ToList();
         }
 
         /// <summary>
@@ -57,20 +67,20 @@ namespace Services
                 LinkedQuestions = new List<Question>()
             };
 
-            var begginerQuestions = ReferencesService.GetQuestionByDifficulty("Débutant")
+            var begginerQuestions = GetQuestionByDifficulty("Débutant")
                 .Where(q => q.LinkedTechno.Wording == tech.Wording)
                 .ToList();
-            var interQuestions = ReferencesService.GetQuestionByDifficulty("Intermédiaire")
+            var interQuestions = GetQuestionByDifficulty("Intermédiaire")
                 .Where(q => q.LinkedTechno.Wording == tech.Wording)
                 .ToList();
-            var expertQuestions = ReferencesService.GetQuestionByDifficulty("Expert")
+            var expertQuestions = GetQuestionByDifficulty("Expert")
                 .Where(q => q.LinkedTechno.Wording == tech.Wording)
                 .ToList();
 
 
-            quizz.LinkedQuestions.AddRange(GenerateRandomQuestionsList(begginerQuestions, (int)diff.Percent.Beginner * nbQuestions /100));
-            quizz.LinkedQuestions.AddRange(GenerateRandomQuestionsList(interQuestions, (int)diff.Percent.Intermediate * nbQuestions/100));
-            quizz.LinkedQuestions.AddRange(GenerateRandomQuestionsList(expertQuestions, (int)diff.Percent.Expert*nbQuestions/100));
+            quizz.LinkedQuestions.AddRange(GenerateRandomQuestionsList(begginerQuestions, Math.Ceiling(diff.Percent.Beginner * nbQuestions /100)));
+            quizz.LinkedQuestions.AddRange(GenerateRandomQuestionsList(interQuestions, Math.Ceiling(diff.Percent.Intermediate * nbQuestions/100)));
+            quizz.LinkedQuestions.AddRange(GenerateRandomQuestionsList(expertQuestions, Math.Ceiling(diff.Percent.Expert * nbQuestions/100)));
 
             return quizz;
         }
@@ -114,7 +124,7 @@ namespace Services
         /// <param name="source">La liste dans laquelle chercher les questions</param>
         /// <param name="rate">Le nombre de questions à chercher</param>
         /// <returns>Une liste de questions piochées aléatoirement</returns>
-        private List<Question> GenerateRandomQuestionsList(List<Question> source, int rate)
+        private List<Question> GenerateRandomQuestionsList(List<Question> source, decimal rate)
         {
             var quest = new List<Question>();
             var rand = new Random();
@@ -127,6 +137,13 @@ namespace Services
             }
 
             return quest;
+        }
+        public static List<Question> GetQuestionByDifficulty(string diff)
+        {
+            return _db.Questions
+                .Where(q => q.LinkedDifficulty.Wording == diff)
+                .Where(q => q.IsActive)
+                .ToList();
         }
     }
 }

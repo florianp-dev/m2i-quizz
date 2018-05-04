@@ -31,12 +31,6 @@ namespace Services
             return db.Technos.ToList();
         }
 
-        public static List<Question> GetQuestionByDifficulty(string diff)
-        {
-            return db.Questions
-                .Where(q => q.LinkedDifficulty.Wording == diff)
-                .Where(q => q.IsActive)
-                .ToList();
-        }
+        
     }
 }

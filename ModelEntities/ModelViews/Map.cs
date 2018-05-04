@@ -129,5 +129,25 @@ namespace ModelEntities.ModelViews
             };
             return answerViewModel;
         }
+
+       // public static QuizzViewModel MapToQuizzViewModel(this Quizz quizz)
+       // {
+       //     var quizzViewModel = new QuizzViewModel();
+       //
+       //     if (quizz == null)
+       //     {
+       //         return quizzViewModel;
+       //     }
+       //     quizzViewModel = new QuizzViewModel()
+       //     {
+       //         QuizzID = quizz.QuizzID,
+       //         CandidateFirstname = quizz.CandidateFirstname,
+       //         CandidateLastname = quizz.CandidateLastname,
+       //         LinkedDifficulty = quizz.LinkedDifficulty,
+       //         LinkedTechno = quizz.LinkedTechno,
+       //         NbQuestions = quizz.NbQuestions,
+       //     };
+       //     return quizzViewModel;
+       // }
     }
 }

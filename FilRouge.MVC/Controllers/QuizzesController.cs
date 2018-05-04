@@ -5,6 +5,10 @@ using ModelEntities.Entities;
 using System.Web.Security;
 using System.Web;
 using Microsoft.AspNet.Identity.Owin;
+using System.Collections.Generic;
+using System.Linq;
+using System.Net;
+using System.Data.Entity;
 
 namespace FilRouge.Web.Controllers
 {
@@ -44,7 +48,8 @@ namespace FilRouge.Web.Controllers
 
         public ActionResult Index()
         {
-            return View(_service.GetAllQuizzes());
+            var quizz = _service.GetAllQuizzes();
+            return View("Index", quizz);
         }
 
         public ActionResult Create()
@@ -66,7 +71,6 @@ namespace FilRouge.Web.Controllers
             var allQuestions = _service.CreateQuiz(quizz.LinkedTechno, quizz.LinkedDifficulty, quizz.NbQuestions, quizz.CandidateFirstname, quizz.CandidateLastname);
 
             var user = UserManager.FindByNameAsync(User.Identity.Name).Result;
-            
 
             if (ModelState.IsValid)
             {
@@ -77,25 +81,22 @@ namespace FilRouge.Web.Controllers
                     NbQuestions = quizz.NbQuestions,
                     UserID = user.Id.ToString(),
                     TechnoID = quizz.TechnoID,
-                    DifficultyID = quizz.DifficultyID
-
+                    DifficultyID = quizz.DifficultyID,
+                    LinkedQuestions = new List<Question>()
+            
                 };
+                quizze.LinkedQuestions.AddRange(allQuestions.LinkedQuestions.Select(l=> new Question {
+                QuestionID=l.QuestionID,
+                DifficultyID = l.DifficultyID,
+                IsActive = l.IsActive,
+                QTypeID = l.QTypeID,
+                TechnoID = l.TechnoID,
+                Wording = l.Wording
+                }));
+
                 db.Quizzes.Add(quizze);
                 db.SaveChanges();
 
-              //  foreach (var question in allQuestions)
-              //  {
-              //      var answer = new Answer
-              //      {
-              //          AnswerID = insertViewModel[i].AnswerID,
-              //          Content = insertViewModel[i].Content,
-              //          IsCorrect = insertViewModel[i].IsCorrect,
-              //          LinkedQuestion = db.Questions.Find(insertViewModel[i].QuestionID),
-              //          CommentID = answerComment.QCommentID
-              //      };
-              //      db.Answers.Add(answer);
-              //      db.SaveChanges();
-              //  }
                return RedirectToAction("Index", "Quizzes");
              }
 
@@ -105,14 +106,58 @@ namespace FilRouge.Web.Controllers
             return View(quizz);
         }
 
-        public ActionResult Edit(int id)
+        public ActionResult Edit(int? id)
         {
-            throw new System.NotImplementedException();
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Quizz quizz = db.Quizzes.Find(id);
+            ViewBag.User = quizz.UserID;
+            if (quizz == null)
+            {
+                return HttpNotFound();
+            }
+            return View(quizz.MapToQuizzViewModel());
         }
 
-        public ActionResult Details(int id)
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit(Quizz quizz)
         {
-            throw new System.NotImplementedException();
+            if (ModelState.IsValid)
+            {
+                quizz.UserID = UserManager.FindByNameAsync(User.Identity.Name).Result.Id.ToString();
+                db.Entry(quizz).State = EntityState.Modified;
+                db.SaveChanges();
+                return RedirectToAction("Index", "Quizzes");
+            }
+            return View(quizz);
+        }
+
+
+        public ActionResult Details(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Quizz quizz = db.Quizzes.Find(id);
+            ViewBag.Question = quizz.LinkedQuestions;
+            if (quizz == null)
+            {
+                return HttpNotFound();
+            }
+            return View(quizz.MapToQuizzViewModel());
+        }
+
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing)
+            {
+                db.Dispose();
+            }
+            base.Dispose(disposing);
         }
     }
 }
