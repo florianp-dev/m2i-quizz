@@ -1,16 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.ComponentModel.DataAnnotations;
 using ModelEntities.Entities;
 
 namespace ModelEntities.ModelViews
 {
     public class QuestionViewModel
     {
-        
         [Display(Name = "ID Question : ")]
         public int QuestionID { get; set; }
 
